@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+/reports/
+/vendor/
+/node_modules/
+*.sql
+*.sql.gz
+*.sqlite
+*.dump
+*credentials*
+*secret*
+Thumbs.db
