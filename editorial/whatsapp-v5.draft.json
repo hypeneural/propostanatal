@@ -13,7 +13,8 @@
     "snapshot_mutation_forbidden": true,
     "disclaimer": "This is an editorial specification, NOT an executable production manifest; full diff, approved hash and controlled provisioner required.",
     "editorial_updates": [
-      "20261026 forensic review: D+5 caption aligned with reported magic scroll video, business longevity moved to T0."
+      "20261026 forensic review: D+5 caption aligned with reported magic scroll video, business longevity moved to T0.",
+      "20261026-API-contract: V4 requires EXACT URLs [evydencia.com/catalogo/natal, horarios, instagram] and stable natal2026-* IDs; direct checkout is a future gated enhancement."
     ],
     "id_policy": "Historical media IDs are NON-AUTHORITATIVE hints from prior extraction; never update by ID without current flow.manifest.mapping stage_roles + stage_messages proof.",
     "publication_requires": [
@@ -23,7 +24,8 @@
       "approval",
       "snapshot_review",
       "dry_run"
-    ]
+    ],
+    "api_contract_validation": "Natal2026ProposalManifest::validate() current V4: action.title max 200 chars, message max 10000, allowed button URLs order fixed, WhatsApp formatted text literal, v4 email body_mode=text."
   },
   "channels": {
     "whatsapp": "draft_changes",
@@ -65,15 +67,21 @@
       ],
       "buttons": [
         {
-          "label": "Reservar agora",
-          "url": "https://reserva.fotosdenatal.com/"
+          "id": "natal2026-reservar",
+          "type": "URL",
+          "label": "🎄 Reservar Agora",
+          "url": "https://evydencia.com/catalogo/natal"
         },
         {
-          "label": "Ver horários",
+          "id": "natal2026-horarios",
+          "type": "URL",
+          "label": "📆 Ver Horários",
           "url": "https://horarios.fotosdenatal.com/"
         },
         {
-          "label": "Ver no Instagram",
+          "id": "natal2026-instagram",
+          "type": "URL",
+          "label": "📸 Nosso Instagram",
           "url": "https://instagram.com/estudioevydenciaa"
         }
       ],
@@ -81,7 +89,10 @@
         "email_resend": "preserve_existing_t0_action_if_eligible",
         "sms": "none_in_initial",
         "voice": "none_in_initial"
-      }
+      },
+      "button_policy": "V4 source: Natal2026ProposalManifest::validate checks EXACT [catalog, horarios, instagram] order; IDs remain stable; checkout direct requires separate approved CRM validator change/provisioning.",
+      "requested_future_checkout": "https://reserva.fotosdenatal.com/",
+      "checkout_gate": "BLOCKED_BY_APPROVED_V4_URL_ALLOWLIST"
     },
     {
       "role": "whatsapp_h1",
@@ -148,7 +159,8 @@
           "fallback_title": "🥹 Seus filhos crescem, mas as fotos deste Natal ficam.\nA temporada de ensaios passa rapidinho. ❤️",
           "asset_basename": "natal2026-rev357-v1-d01.mp4",
           "historical_media_id_hint_415": 1456,
-          "historical_media_id_hint_416": 1472
+          "historical_media_id_hint_416": 1472,
+          "countdown_gate": "Fallback is editorial field only; current CRM runtime does not automatically select fallback_title. Verify token replacement at dispatch in title, else use fallback_title as the actual approved title in full manifest before publication."
         }
       ]
     },
