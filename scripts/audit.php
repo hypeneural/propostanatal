@@ -7,9 +7,10 @@ declare(strict_types=1);
  */
 error_reporting(E_ALL);
 if (in_array('--self-test', $argv, true)) {
-    assert(class_exists(PDO::class));
-    echo "SELF-TEST OK: PHP ".PHP_VERSION."; PDO available; mysql driver=". (in_array('mysql', PDO::getAvailableDrivers(), true) ? 'yes' : 'NO') ."\n";
-    exit(0);
+    $pdoAvailable=class_exists(PDO::class);
+    $mysqlAvailable=$pdoAvailable && in_array('mysql', PDO::getAvailableDrivers(), true);
+    echo "SELF-TEST ".($mysqlAvailable ? "OK" : "FAILED").": PHP ".PHP_VERSION."; PDO=".($pdoAvailable ? "yes" : "NO")."; mysql driver=".($mysqlAvailable ? "yes" : "NO")."\n";
+    exit($mysqlAvailable ? 0 : 1);
 }
 if (in_array('--help', $argv, true)) {
     echo "Usage: php scripts/audit.php [--self-test|--help]\nReads .env.local and exports local JSON, CSV and Markdown. No data is modified.\n";
