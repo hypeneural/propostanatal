@@ -25,10 +25,10 @@ ALLOWED_URLS = {
     "https://instagram.com/estudioevydenciaa",
 }
 BANNED_PATTERNS = [
-    r"(?:85|95)\\s*%", r"restam somente\\s+\\d+\\s+vagas",
-    r"Comprovante_de_Transferencia", r"<break\\s",
-    r"\\[(?:excited|laughs|whispers|mischievously|curious)\\]",
-    r"\\bD\\+\\d+\\b",
+    r"(?:85|95)\s*%", r"restam somente\s+\d+\s+vagas",
+    r"Comprovante_de_Transferencia", r"<break\s",
+    r"\[(?:excited|laughs|whispers|mischievously|curious)\]",
+    r"\bD\+\d+\b",
 ]
 CAPTION_MAX = 500
 
@@ -85,7 +85,7 @@ def check() -> list[str]:
                 body = msg.get(field)
                 if not isinstance(body, str):
                     continue
-                tokens = set(re.findall(r"\\{([a-z_]+)\\}", body))
+                tokens = set(re.findall(r"\{([a-z_]+)\}", body))
                 if tokens - ALLOWED_TOKENS:
                     errors.append(f"{role}/{field}: unknown tokens {sorted(tokens - ALLOWED_TOKENS)}")
                 if "```" in body or "<br" in body.lower():
