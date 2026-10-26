@@ -6,7 +6,10 @@ try {
         @("python", "scripts/validate_editorial.py"),
         @("python", "scripts/reconcile_v4_local.py", "--self-test"),
         @("python", "scripts/inspect_local_media.py", "--self-test"),
-        @("python", "scripts/preview_whatsapp_v5.py", "--role", "initial")
+        @("python", "scripts/preview_whatsapp_v5.py", "--role", "initial"),
+        @("python", "scripts/render_canonical_v5.py", "--check"),
+        @("python", "scripts/check_forensic_gates.py", "--self-test"),
+        @("python", "scripts/check_forensic_gates.py")
     )
     foreach ($cmd in $commands) {
         Write-Host ("RUN " + ($cmd -join " ")) -ForegroundColor Cyan
