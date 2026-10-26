@@ -23,6 +23,8 @@ E a magia continua em casa, com fotos reveladas e lembranças personalizadas.
 Já vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.
 
 Vocês preferem *semana ou fim de semana*?
+
+_Para parar lembretes, responda PARARNATAL2026._
 ```
 
 ### 416 — `intro_cta.message`
@@ -36,6 +38,8 @@ E a magia continua em casa, com fotos reveladas e lembranças personalizadas.
 Já vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.
 
 Vocês preferem *semana ou fim de semana*?
+
+_Para parar lembretes, responda PARARNATAL2026._
 ```
 
 ### T0 — `cenarios_image.title` (caption)
