@@ -172,23 +172,23 @@ Aqui, o ensaio também é uma experiência. ❤️
 
 ### lembrete_4dias — action
 
-**action.message** (385 caracteres Unicode)
+**action.message** (417 caracteres Unicode)
 
 ~~~text
-🎄 *10 motivos pra viver nosso Natal:*
+🎄 *10 motivos pra reservar seu Natal:*
 
-1️⃣ Natal + Ano Novo
-2️⃣ Dois cenários em uma visita
-3️⃣ Fotos reveladas
-4️⃣ Jogos com suas fotos
-5️⃣ Galeria personalizada
-6️⃣ Figurinos infantis
-7️⃣ Bolhinhas de sabão
-8️⃣ Retratos em família
-9️⃣ Evydência em Tijucas desde 2011
-🔟 Horários pela internet
+1️⃣ Dois cenários (Natal + Ano Novo)
+2️⃣ Fotos reveladas
+3️⃣ Jogos com suas fotos
+4️⃣ Galeria personalizada
+5️⃣ Figurinos infantis
+6️⃣ Bolhinhas e diversão
+7️⃣ Cenários preparados com carinho
+8️⃣ Memórias com quem você ama
+9️⃣ Em Tijucas desde 2011
+🔟 Horários online em tempo real
 
-Qual combina mais com vocês? 🥰
+*Quer escolher o melhor horário?* 📅
 
 _Se preferir parar os lembretes, responda PARARNATAL2026._
 ~~~
