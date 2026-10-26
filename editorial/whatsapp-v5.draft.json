@@ -16,7 +16,8 @@
       "20261026 forensic review: D+5 caption aligned with reported magic scroll video, business longevity moved to T0.",
       "20261026-API-contract: V4 requires EXACT URLs [evydencia.com/catalogo/natal, horarios, instagram] and stable natal2026-* IDs; direct checkout is a future gated enhancement.",
       "20261026 compression: shortened T0 and D+1/2/3/4 captions to native mobile WhatsApp; D+3 has one games demo URL; static D+1 fallback must be chosen explicitly if variable cannot render.",
-      "20261026 ChatGPT audit: replaced D+1 runtime countdown token by static caption; archived dynamic candidate and made JSON sole source for editable copy."
+      "20261026 ChatGPT audit: replaced D+1 runtime countdown token by static caption; archived dynamic candidate and made JSON sole source for editable copy.",
+      "20261026 Dossier17 review: first visible textual opt-out D+3, preserved H+1 reply STOP button per V4; D+4 10 short benefits in existing action; D+10 reminder footer, no new sends."
     ],
     "id_policy": "Historical media IDs are NON-AUTHORITATIVE hints from prior extraction; never update by ID without current flow.manifest.mapping stage_roles + stage_messages proof.",
     "publication_requires": [
@@ -34,7 +35,37 @@
     "api_contract_validation": "Natal2026ProposalManifest::validate() current V4: action.title max 200 chars, message max 10000, allowed button URLs order fixed, WhatsApp formatted text literal, v4 email body_mode=text.",
     "release_policy": "GO_OFFLINE_REVIEW_ONLY; NO_GO_CANARY_AND_PRODUCTION_UNTIL_P0_SUPPRESSION_PROVED",
     "canonical_copy_path": "editorial/whatsapp-v5.draft.json",
-    "archival_report_policy": "docs/EDITORIAL-V5-20261026/relatorios are dated historical evidence, NOT approved executable copy"
+    "archival_report_policy": "docs/EDITORIAL-V5-20261026/relatorios are dated historical evidence, NOT approved executable copy",
+    "opt_out_display_policy": {
+      "effective_in_draft_only": true,
+      "first_explicit_footer_role": "whatsapp_d3",
+      "early_roles_without_repeated_footer": [
+        "initial",
+        "whatsapp_h1",
+        "whatsapp_90min",
+        "whatsapp_d2"
+      ],
+      "later_roles_with_explicit_footer": [
+        "whatsapp_d3",
+        "whatsapp_d4",
+        "whatsapp_d10"
+      ],
+      "must_preserve_v4_reply_button_on_h1": true,
+      "never_disable_stop_recognition": true,
+      "cross_channel_consent_and_suppression_required": true,
+      "policy_caveat": "Promotional follow-ups must be expected/consented; stop requests via text or any channel honored immediately, even when footer omitted."
+    },
+    "commercial_copy_policy": {
+      "ten_motives_role": "whatsapp_d4",
+      "ten_motives_in_existing_action": true,
+      "no_new_stage_or_send": true,
+      "urgency_requires_verified_inventory_and_session_close_date": true,
+      "pending_claims": [
+        "gallery_all_packages_site_checkout_alignment",
+        "figurine_size_and_stock",
+        "bubble_machine_2026_operational"
+      ]
+    }
   },
   "channels": {
     "whatsapp": "draft_changes",
@@ -52,8 +83,8 @@
         {
           "message_role": "intro_cta",
           "type": "action",
-          "message_with_name": "Oii, *{primeiro_nome}*! 🎄🥰\n\nNa *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨\n\nEstamos aqui *desde 2011*, fotografando histórias de família. ❤️\n\nJá te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.\n\n*Prefere semana ou fim de semana?*\n\n_Para parar lembretes, responda PARARNATAL2026._",
-          "message_without_name": "Oii! 🎄🥰\n\nNa *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨\n\nEstamos aqui *desde 2011*, fotografando histórias de família. ❤️\n\nJá te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.\n\n*Prefere semana ou fim de semana?*\n\n_Para parar lembretes, responda PARARNATAL2026._"
+          "message_with_name": "Oii, *{primeiro_nome}*! 🎄🥰\n\nNa *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨\n\nEstamos aqui *desde 2011*, fotografando histórias de família. ❤️\n\nJá te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.\n\n*Prefere semana ou fim de semana?*",
+          "message_without_name": "Oii! 🎄🥰\n\nNa *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨\n\nEstamos aqui *desde 2011*, fotografando histórias de família. ❤️\n\nJá te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.\n\n*Prefere semana ou fim de semana?*"
         },
         {
           "message_role": "cenarios_image",
@@ -120,7 +151,7 @@
         {
           "message_role": "duvidas_reply",
           "type": "action",
-          "message": "Quer que eu te ajude a escolher um horário? 🥰\n\n_Para parar lembretes, responda PARARNATAL2026._"
+          "message": "Quer que eu te ajude a escolher um horário? 🥰"
         }
       ]
     },
@@ -142,7 +173,7 @@
         {
           "message_role": "reserva_cta",
           "type": "action",
-          "message": "Se preferir, dá pra escolher o horário direto no botão. 📅\n\n_Para parar lembretes, responda PARARNATAL2026._"
+          "message": "Se preferir, dá pra escolher o horário direto no botão. 📅"
         }
       ]
     },
@@ -197,7 +228,7 @@
         {
           "message_role": "lembrete_2dias",
           "type": "action",
-          "message": "Quer ver os horários que ainda funcionam pra vocês? 📅\n\n_Para parar lembretes, responda PARARNATAL2026._"
+          "message": "Quer ver os horários que ainda funcionam pra vocês? 📅"
         }
       ]
     },
@@ -220,7 +251,7 @@
         {
           "message_role": "video_d3",
           "type": "video",
-          "title": "🎮 As fotos do ensaio viram *jogos personalizados*!\nQuer testar? https://jogos.fotosdenatal.com/",
+          "title": "🎮 As fotos do ensaio viram *jogos personalizados*!\nQuer testar? https://jogos.fotosdenatal.com/\n\n_Se preferir parar os lembretes, responda PARARNATAL2026._",
           "asset_basename": "natal2026-rev357-v1-jogos.mp4",
           "historical_media_id_hint_415": 1457,
           "historical_media_id_hint_416": 1473
@@ -250,7 +281,9 @@
         {
           "message_role": "lembrete_4dias",
           "type": "action",
-          "message": "Se quiser, te conto como preparar os looks da família. 🥰\n\n_Para parar lembretes, responda PARARNATAL2026._"
+          "message": "🎄 *10 motivos pra viver nosso Natal:*\n\n1️⃣ Natal + Ano Novo\n2️⃣ Dois cenários em uma visita\n3️⃣ Fotos reveladas\n4️⃣ Jogos com suas fotos\n5️⃣ Galeria personalizada\n6️⃣ Figurinos infantis\n7️⃣ Bolhinhas de sabão\n8️⃣ Retratos em família\n9️⃣ Evydência em Tijucas desde 2011\n🔟 Horários pela internet\n\nQual combina mais com vocês? 🥰\n\n_Se preferir parar os lembretes, responda PARARNATAL2026._",
+          "content_gate": "Claims based on public 2026 catalog, video and owner statement; gallery-in-every-package requires catalog/checkout/PDF operational reconciliation; balloons/figurines availability must match 2026 operation.",
+          "editorial_intent": "TEN_SHORT_BENEFITS_REPLACES_EXISTING_D4_ACTION_NO_NEW_TOUCHPOINT"
         }
       ]
     },
@@ -295,7 +328,7 @@
         {
           "message_role": "video_d10",
           "type": "video",
-          "title": "🎄 Ainda pensando nas fotos de Natal?\nSe a dúvida for pacote, roupinha ou horário, me chama por aqui. ❤️",
+          "title": "🎄 Ainda pensando nas fotos de Natal?\nSe a dúvida for pacote, roupinha ou horário, me chama. ❤️\n\n_Se preferir parar os lembretes, responda PARARNATAL2026._",
           "asset_basename": "natal2026-rev357-v1-d10.mp4",
           "historical_media_id_hint_415": 1459,
           "historical_media_id_hint_416": 1475
