@@ -240,4 +240,3 @@ SMS V4 preservado; nenhuma alteração editorial nesta rodada.
 - **D+10:** confirmar/corrigir o estado dos runs pendentes e cancelar/suprimir via operação segura autorizada, mantendo recibos e auditoria.
 - **Outros canais:** manter SMS, Resend e SmartVoice inalterados, mas não considerar preserve_existing_v4 equivalente a entrega homologada.
 - **Status:** GO apenas para revisão offline; produção NO-GO.
-
