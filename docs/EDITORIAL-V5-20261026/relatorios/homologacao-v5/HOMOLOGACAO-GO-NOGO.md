@@ -1,3 +1,5 @@
+> **GO/NOGO HISTÓRICO:** O relatório foi produzido antes da V5.1 editorial. A copy nova começa texto STOP em D+3, contém dez motivos em D+4 e preserva botão STOP H+1 do manifesto. O P0 não é só cancelar runs existentes: é impedir novas programações do PDF enganoso enquanto a V4 estiver ativa. Ver documentos [18 Parecer](../../18-PARECER-DOSSIE17-E-IMPLEMENTACAO.md) e [19 Importação](../../19-HANDOFF-ANTIGRAVITY-GESTOR.md). **Produção permanece NO-GO** até supressão/controles comprovados e publicação por hash aprovada.
+
 # Matriz de Homologação Final e Veredito GO / NO-GO — Natal 2026
 
 **Data:** 2026-10-26T16:15:25Z  
