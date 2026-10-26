@@ -1,3 +1,5 @@
+> **DIFERENCIAL HISTÓRICO / NÃO É PATCH APLICÁVEL:** Confronto relativo ao inventário de 26/10/2026, 12:34:30. Os IDs devem ser reconciliados novamente antes de qualquer publicação, e o rascunho JSON mudou em D+1. Usar `../14-COPY-CANONICA-V5-CANDIDATA.md` para a copy atual. Os snapshots legados podem manter payload antigo; NÃO usar este arquivo como script de UPDATE.
+
 # V5-DIFF-AUDITADO — Confronto Cirúrgico V4 Real × V5 Proposta
 
 **Data da Auditoria:** 26/10/2026  
