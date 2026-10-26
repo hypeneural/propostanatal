@@ -1,3 +1,5 @@
+> **AUDITORIA INDEPENDENTE V5.1 (26/10/2026):** Este Dossiê 17 é histórico. A copy foi revista a pedido da direção: rodapé textual STOP passa a aparecer a partir de D+3 e novamente em D+4/D+10, **com botão REPLY PARARNATAL2026 obrigatório em H+1 mantido**; D+4 passou a exibir 10 motivos curtos no action existente. Fontes atualizadas: [18 Parecer](18-PARECER-DOSSIE17-E-IMPLEMENTACAO.md), [19 Importação pelo gestor](19-HANDOFF-ANTIGRAVITY-GESTOR.md), `editorial/whatsapp-v5.draft.json` e [14 Copy canônica](14-COPY-CANONICA-V5-CANDIDATA.md). **P0 13 pending é snapshot de 16:15:25Z; SQL direto de supressão rejeitado, risco inclui novos runs. GO somente offline; NO-GO produção.**
+
 # 17 — Dossiê Mestre de Homologação V5 e Estratégia de Próximos Passos (Para Validação pelo ChatGPT)
 
 **Data:** 26/10/2026  
