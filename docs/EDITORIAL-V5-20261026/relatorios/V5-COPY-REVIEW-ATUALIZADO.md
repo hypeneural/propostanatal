@@ -1,3 +1,5 @@
+> **ARQUIVO HISTÓRICO (26/10/2026):** As legendas abaixo NÃO são a V5 executável vigente. O documento diverge de `editorial/whatsapp-v5.draft.json` em 6 de 8 legendas; o D+1 com token dinâmico foi substituído no JSON por legenda estática. Para aprovar use `../14-COPY-CANONICA-V5-CANDIDATA.md` (gerado automaticamente) e `../15-PARECER-VALIDACAO-GO-NOGO.md`. Não copiar campos deste relatório para o gestor.
+
 # V5-COPY-REVIEW-ATUALIZADO — Revisão Consolidada de Copy WhatsApp
 
 **Data:** 26/10/2026  
