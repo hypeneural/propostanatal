@@ -14,6 +14,15 @@
     "disclaimer": "This is an editorial specification, NOT an executable production manifest; full diff, approved hash and controlled provisioner required.",
     "editorial_updates": [
       "20261026 forensic review: D+5 caption aligned with reported magic scroll video, business longevity moved to T0."
+    ],
+    "id_policy": "Historical media IDs are NON-AUTHORITATIVE hints from prior extraction; never update by ID without current flow.manifest.mapping stage_roles + stage_messages proof.",
+    "publication_requires": [
+      "fresh_database_inventory",
+      "manifest_revision_and_configuration_hash_match",
+      "media_sha256_confirmation",
+      "approval",
+      "snapshot_review",
+      "dry_run"
     ]
   },
   "channels": {
@@ -40,8 +49,8 @@
           "type": "image",
           "title": "🎁 *Três jeitos de viver esse Natal!*\nTodos incluem os *dois cenários* e fotos reveladas.\nOlha os pacotes na imagem e me diz qual combina com vocês. ❤️",
           "asset_basename": "natal-2026-pacotes-r1.png",
-          "media_id_415": 1446,
-          "media_id_416": 1462
+          "historical_media_id_hint_415": 1446,
+          "historical_media_id_hint_416": 1462
         },
         {
           "message_role": "proposta_pdf",
@@ -49,9 +58,9 @@
           "title": "Proposta-Natal-AnoNovo-Evydencia-2026.pdf",
           "title_semantics": "fileName not caption",
           "asset_basename": "natal2026-rev357-v1-proposta.pdf",
-          "media_id_415": 1447,
-          "media_id_416": 1463,
-          "requires_pdf_visual_validation": true
+          "requires_pdf_visual_validation": true,
+          "historical_media_id_hint_415": 1447,
+          "historical_media_id_hint_416": 1463
         }
       ],
       "buttons": [
@@ -85,8 +94,8 @@
           "type": "video",
           "title": "🎄 Olha um pedacinho da nossa Vila de Natal...\nÉ aqui que as famílias brincam e criam lembranças lindas. ❤️",
           "asset_basename": "natal-2026-1hora-r3.mp4",
-          "media_id_415": 1448,
-          "media_id_416": 1464
+          "historical_media_id_hint_415": 1448,
+          "historical_media_id_hint_416": 1464
         },
         {
           "message_role": "duvidas_reply",
@@ -107,8 +116,8 @@
           "type": "video",
           "title": "✨ São *dois cenários na mesma sessão*.\nQual dia seria mais tranquilo pra sua família?",
           "asset_basename": "natal-2026-90min-r3.mp4",
-          "media_id_415": 1450,
-          "media_id_416": 1466
+          "historical_media_id_hint_415": 1450,
+          "historical_media_id_hint_416": 1466
         },
         {
           "message_role": "reserva_cta",
@@ -138,8 +147,8 @@
           "title": "🥹 Seus filhos crescem, mas as fotos deste Natal ficam.\n\n*{natal_countdown_dias_descricao}* 🎄\nAinda dá tempo de escolher uma data especial pra vocês.",
           "fallback_title": "🥹 Seus filhos crescem, mas as fotos deste Natal ficam.\nA temporada de ensaios passa rapidinho. ❤️",
           "asset_basename": "natal2026-rev357-v1-d01.mp4",
-          "media_id_415": 1456,
-          "media_id_416": 1472
+          "historical_media_id_hint_415": 1456,
+          "historical_media_id_hint_416": 1472
         }
       ]
     },
@@ -160,8 +169,8 @@
           "type": "video",
           "title": "🎆 Uma surpresa que vale por duas:\nalém das fotos de Natal, tem *cenário de Ano Novo* na mesma sessão! ✨",
           "asset_basename": "natal-2026-2dias-r3.mp4",
-          "media_id_415": 1452,
-          "media_id_416": 1468
+          "historical_media_id_hint_415": 1452,
+          "historical_media_id_hint_416": 1468
         },
         {
           "message_role": "lembrete_2dias",
@@ -191,8 +200,8 @@
           "type": "video",
           "title": "🎮 A parte que as crianças amam!\nAs fotos viram *jogos personalizados* e uma galeria pra família reviver tudo. ❤️",
           "asset_basename": "natal2026-rev357-v1-jogos.mp4",
-          "media_id_415": 1457,
-          "media_id_416": 1473
+          "historical_media_id_hint_415": 1457,
+          "historical_media_id_hint_416": 1473
         }
       ]
     },
@@ -213,8 +222,8 @@
           "type": "video",
           "title": "👗 Já pensou nas roupinhas?\nAqui temos figurinos e acessórios infantis conforme tamanho e disponibilidade. ✨",
           "asset_basename": "natal-2026-4dias-r3.mp4",
-          "media_id_415": 1454,
-          "media_id_416": 1470
+          "historical_media_id_hint_415": 1454,
+          "historical_media_id_hint_416": 1470
         },
         {
           "message_role": "lembrete_4dias",
@@ -240,10 +249,10 @@
           "type": "video",
           "title": "✨ Um recadinho mágico apareceu na nossa Vila de Natal! 📜🎄\nOlha esse encanto... Quer ver os horários pra viver essa experiência?",
           "asset_basename": "natal2026-rev357-v1-d05.mp4",
-          "media_id_415": 1458,
-          "media_id_416": 1474,
           "asset_relevance": "Reported Antigravity local OpenCV frames show theatrical fairy/elf with illuminated scroll; frame hash and timestamps have not been independently verified.",
-          "claim_gate": "Clip of theatrical character is promotional artwork; do NOT imply character is included in purchased session."
+          "claim_gate": "Clip of theatrical character is promotional artwork; do NOT imply character is included in purchased session.",
+          "historical_media_id_hint_415": 1458,
+          "historical_media_id_hint_416": 1474
         }
       ],
       "rationale": "A legenda anterior 'desde 2011' era desconexa do vídeo D+5 segundo inspeção local Antigravity; deslocar prova de antiguidade para T0/pós-vídeo apropriado.",
@@ -266,8 +275,8 @@
           "type": "video",
           "title": "🎄 Ainda pensando nas fotos de Natal?\nSe a dúvida for pacote, roupinha ou horário, me chama por aqui. ❤️",
           "asset_basename": "natal2026-rev357-v1-d10.mp4",
-          "media_id_415": 1459,
-          "media_id_416": 1475
+          "historical_media_id_hint_415": 1459,
+          "historical_media_id_hint_416": 1475
         }
       ]
     },
@@ -281,10 +290,10 @@
           "message_role": "document_d10",
           "type": "attachment",
           "asset_basename": "natal2026-rev357-v1-d10-document.pdf",
-          "media_id_415": 1460,
-          "media_id_416": 1476,
           "action": "disable_by_authorized_safe_path_including_frozen_runs",
-          "reason": "document filename and visual impersonate PIX receipt"
+          "reason": "document filename and visual impersonate PIX receipt",
+          "historical_media_id_hint_415": 1460,
+          "historical_media_id_hint_416": 1476
         }
       ]
     },
