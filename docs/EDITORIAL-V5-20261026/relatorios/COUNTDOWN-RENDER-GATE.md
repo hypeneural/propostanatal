@@ -1,3 +1,5 @@
+> **PORTÃO RESOLVIDO APENAS NO RASCUNHO:** A V5 canônica em `editorial/whatsapp-v5.draft.json` agora usa legenda D+1 **estática** e sem `{natal_countdown_dias_descricao}`. Este arquivo documenta o risco da hipótese dinâmica anterior, não a decisão de envio atual. O token calcula prazo até **25/12**, não até a data de encerramento dos ensaios. Para reintroduzi-lo exigir prova de renderização no worker e aprovação separada.
+
 # COUNTDOWN-RENDER-GATE — Análise da Variável Dinâmica de D+1 e Portão de Fallback
 
 **Data:** 26/10/2026  
