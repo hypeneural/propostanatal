@@ -281,7 +281,7 @@
         {
           "message_role": "lembrete_4dias",
           "type": "action",
-          "message": "🎄 *10 motivos pra viver nosso Natal:*\n\n1️⃣ Natal + Ano Novo\n2️⃣ Dois cenários em uma visita\n3️⃣ Fotos reveladas\n4️⃣ Jogos com suas fotos\n5️⃣ Galeria personalizada\n6️⃣ Figurinos infantis\n7️⃣ Bolhinhas de sabão\n8️⃣ Retratos em família\n9️⃣ Evydência em Tijucas desde 2011\n🔟 Horários pela internet\n\nQual combina mais com vocês? 🥰\n\n_Se preferir parar os lembretes, responda PARARNATAL2026._",
+          "message": "🎄 *10 motivos pra reservar seu Natal:*\n\n1️⃣ Dois cenários (Natal + Ano Novo)\n2️⃣ Fotos reveladas\n3️⃣ Jogos com suas fotos\n4️⃣ Galeria personalizada\n5️⃣ Figurinos infantis\n6️⃣ Bolhinhas e diversão\n7️⃣ Cenários preparados com carinho\n8️⃣ Memórias com quem você ama\n9️⃣ Em Tijucas desde 2011\n🔟 Horários online em tempo real\n\n*Quer escolher o melhor horário?* 📅\n\n_Se preferir parar os lembretes, responda PARARNATAL2026._",
           "content_gate": "Claims based on public 2026 catalog, video and owner statement; gallery-in-every-package requires catalog/checkout/PDF operational reconciliation; balloons/figurines availability must match 2026 operation.",
           "editorial_intent": "TEN_SHORT_BENEFITS_REPLACES_EXISTING_D4_ACTION_NO_NEW_TOUCHPOINT"
         }
