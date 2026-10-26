@@ -1,3 +1,5 @@
+> **ERRATA DE SEGURANÇA — 26/10/2026:** Retirado o SQL de atualização em massa. O material abaixo é análise; NÃO executado e NÃO é aprovação de intervenção. Os 13 pendentes correspondem exclusivamente à extração de 16:15:25Z.
+
 # Relatório Técnico P0 — Estado Atual dos Agendamentos D+10 (Etapas 666 e 685)
 
 **Data da Extração LIVE:** 2026-10-26T16:15:25Z  
@@ -65,25 +67,22 @@ O worker da fila (`StageRunJob`) reconstrói o objeto `Message` diretamente do J
 3. **Escopo Cirúrgico:** Atingir estritamente o anexo das etapas 666 e 685, sem afetar o vídeo acolhedor de D+10 ou os 9 SMS.
 4. **Sem Mutação Silenciosa de Snapshots:** O status do run deve ser transicionado para `skipped` ou `cancelled`, registrando justificativa rastreável.
 
-### Proposta de Script de Execução Controlada (`scripts/suppress_d10_p0_dry_run.php`):
-```sql
--- 1. Snapshot de auditoria e segurança prévia
-CREATE TABLE IF NOT EXISTS campaign_stage_runs_p0_backup AS
-SELECT * FROM campaign_contact_stage_runs
-WHERE campaign_stage_id IN (666, 685)
-  AND status = 'pending'
-  AND stage_snapshot LIKE '%natal2026-rev357-v1-d10-document.pdf%';
+### Desenho anterior retirado — NÃO EXECUTAR SQL DIRETO
 
--- 2. Transição controlada de status com motivo auditável
-UPDATE campaign_contact_stage_runs
-SET status = 'skipped',
-    updated_at = NOW()
-WHERE campaign_stage_id IN (666, 685)
-  AND status = 'pending'
-  AND stage_snapshot LIKE '%natal2026-rev357-v1-d10-document.pdf%';
-```
+> **P0: o exemplo anterior com `CREATE TABLE AS SELECT` seguido de `UPDATE ... SET status='skipped'` NÃO ESTÁ APROVADO.** Foi retirado porque pode concorrer com workers, ignorar leases/outbox, não garantir backup transacional nem auditabilidade e **não impedir novos runs criados enquanto a V4 permanece ativa**.
 
-### Critério de Aceite Pós-Operação:
-* Consulta `SELECT COUNT(*)` para etapas 666 e 685 com `status = 'pending'` **DEVE RETORNAR 0**.
-* Os agendamentos pulados (`skipped`) devem totalizar 14 (13 novos + 1 pré-existente).
-* Zero delivery items gerados.
+**O risco possui dois planos diferentes:**
+
+1. **Execuções pendentes já congeladas:** revalidar SELECT atual (IDs, status, título/asset no snapshot, delivery/outbox e leases) e criar uma operação administrativa no CRM com permissões, transação, lock/CAS/idempotência, log do operador e provas pré/pós, apenas sobre entregas ainda elegíveis.
+2. **Novos agendamentos perigosos enquanto a V4 está ativa:** demonstrar mecanismo que impeça nova criação/despacho do PDF enganoso. Cancelar 13 runs históricos não corrige a origem. Coordenar proteção do novo agendamento com a supressão dos pendentes e a futura revisão aprovada, preservando o vídeo D+10 e SMS.
+
+**Portões para qualquer execução futura autorizada:** snapshot fiel e seguro, plano de rollback sem redespacho da peça indevida, proteção de jobs já em execução, verificação de fila/outbox, comparação atômica do estado no início da operação, logs de auditoria e reconsulta após liberação dos workers. Se houver conflito de estado, parar sem executar correção genérica.
+
+### Critério de aceite pós-operação (não atingido nesta auditoria)
+
+* Zero entregas **elegíveis** do PDF enganoso em runs, jobs, outbox e itens in-flight. `status = 'pending'` isoladamente não basta.
+* Comprovação de que a V4 ativa já **não consegue gerar novos agendamentos do documento**.
+* Nenhum SMS nem vídeo D+10 válido suprimido inadvertidamente.
+* Log administrativo, prova de idempotência e revisão técnica dos resultados.
+* Contagem final de `skipped` **não precisa ser 14**, pois o estado LIVE muda a cada nova proposta.
+
