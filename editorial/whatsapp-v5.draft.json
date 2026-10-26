@@ -14,7 +14,8 @@
     "disclaimer": "This is an editorial specification, NOT an executable production manifest; full diff, approved hash and controlled provisioner required.",
     "editorial_updates": [
       "20261026 forensic review: D+5 caption aligned with reported magic scroll video, business longevity moved to T0.",
-      "20261026-API-contract: V4 requires EXACT URLs [evydencia.com/catalogo/natal, horarios, instagram] and stable natal2026-* IDs; direct checkout is a future gated enhancement."
+      "20261026-API-contract: V4 requires EXACT URLs [evydencia.com/catalogo/natal, horarios, instagram] and stable natal2026-* IDs; direct checkout is a future gated enhancement.",
+      "20261026 compression: shortened T0 and D+1/2/3/4 captions to native mobile WhatsApp; D+3 has one games demo URL; static D+1 fallback must be chosen explicitly if variable cannot render."
     ],
     "id_policy": "Historical media IDs are NON-AUTHORITATIVE hints from prior extraction; never update by ID without current flow.manifest.mapping stage_roles + stage_messages proof.",
     "publication_requires": [
@@ -43,8 +44,8 @@
         {
           "message_role": "intro_cta",
           "type": "action",
-          "message_with_name": "Oii, *{primeiro_nome}*! 🥰🎄\nA *Vila de Natal* da Evydência, em Tijucas, está linda!\n\n✨ *Natal + Ano Novo em uma única sessão.*\nE a magia continua em casa, com fotos reveladas e lembranças personalizadas.\n\n*Desde 2011 em Tijucas*, registrando histórias de família. ❤️\n\nJá vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.\n\nVocês preferem *semana ou fim de semana*?\n\n_Para parar lembretes, responda PARARNATAL2026._",
-          "message_without_name": "Oii! 🥰🎄\nA *Vila de Natal* da Evydência, em Tijucas, está linda!\n\n✨ *Natal + Ano Novo em uma única sessão.*\nE a magia continua em casa, com fotos reveladas e lembranças personalizadas.\n\n*Desde 2011 em Tijucas*, registrando histórias de família. ❤️\n\nJá vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.\n\nVocês preferem *semana ou fim de semana*?\n\n_Para parar lembretes, responda PARARNATAL2026._"
+          "message_with_name": "Oii, *{primeiro_nome}*! 🎄🥰\n\nNa *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨\n\nEstamos aqui *desde 2011*, fotografando histórias de família. ❤️\n\nJá te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.\n\n*Prefere semana ou fim de semana?*\n\n_Para parar lembretes, responda PARARNATAL2026._",
+          "message_without_name": "Oii! 🎄🥰\n\nNa *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨\n\nEstamos aqui *desde 2011*, fotografando histórias de família. ❤️\n\nJá te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.\n\n*Prefere semana ou fim de semana?*\n\n_Para parar lembretes, responda PARARNATAL2026._"
         },
         {
           "message_role": "cenarios_image",
@@ -155,8 +156,8 @@
         {
           "message_role": "video_d1",
           "type": "video",
-          "title": "🥹 Seus filhos crescem, mas as fotos deste Natal ficam.\n\n*{natal_countdown_dias_descricao}* 🎄\nAinda dá tempo de escolher uma data especial pra vocês.",
-          "fallback_title": "🥹 Seus filhos crescem, mas as fotos deste Natal ficam.\nA temporada de ensaios passa rapidinho. ❤️",
+          "title": "🥹 Daqui a alguns anos, é essa fase que você vai querer rever. ❤️\n*{natal_countdown_dias_descricao}* 🎄",
+          "fallback_title": "🥹 Daqui a alguns anos, é essa fase que você vai querer rever. ❤️\nA temporada de Natal passa rapidinho. 🎄",
           "asset_basename": "natal2026-rev357-v1-d01.mp4",
           "historical_media_id_hint_415": 1456,
           "historical_media_id_hint_416": 1472,
@@ -179,7 +180,7 @@
         {
           "message_role": "video_2dias",
           "type": "video",
-          "title": "🎆 Uma surpresa que vale por duas:\nalém das fotos de Natal, tem *cenário de Ano Novo* na mesma sessão! ✨",
+          "title": "🎆 *Natal + Ano Novo*, num ensaio só!\nDois cenários pra guardar mais momentos da família. ✨",
           "asset_basename": "natal-2026-2dias-r3.mp4",
           "historical_media_id_hint_415": 1452,
           "historical_media_id_hint_416": 1468
@@ -210,7 +211,7 @@
         {
           "message_role": "video_d3",
           "type": "video",
-          "title": "🎮 A parte que as crianças amam!\nAs fotos viram *jogos personalizados* e uma galeria pra família reviver tudo. ❤️",
+          "title": "🎮 As fotos do ensaio viram *jogos personalizados*!\nQuer testar? https://jogos.fotosdenatal.com/",
           "asset_basename": "natal2026-rev357-v1-jogos.mp4",
           "historical_media_id_hint_415": 1457,
           "historical_media_id_hint_416": 1473
@@ -232,7 +233,7 @@
         {
           "message_role": "video_4dias",
           "type": "video",
-          "title": "👗 Já pensou nas roupinhas?\nAqui temos figurinos e acessórios infantis conforme tamanho e disponibilidade. ✨",
+          "title": "👗 Figurinos, brincadeiras e até *bolhinhas de sabão*! 🫧\nAqui, o ensaio também é uma experiência. ❤️",
           "asset_basename": "natal-2026-4dias-r3.mp4",
           "historical_media_id_hint_415": 1454,
           "historical_media_id_hint_416": 1470
