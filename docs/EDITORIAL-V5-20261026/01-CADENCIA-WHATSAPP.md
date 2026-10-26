@@ -20,6 +20,8 @@ A *Vila de Natal* da Evydência, em Tijucas, está linda!
 ✨ *Natal + Ano Novo em uma única sessão.*
 E a magia continua em casa, com fotos reveladas e lembranças personalizadas.
 
+*Desde 2011 em Tijucas*, registrando histórias de família. ❤️
+
 Já vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.
 
 Vocês preferem *semana ou fim de semana*?
@@ -34,6 +36,8 @@ A *Vila de Natal* da Evydência, em Tijucas, está linda!
 
 ✨ *Natal + Ano Novo em uma única sessão.*
 E a magia continua em casa, com fotos reveladas e lembranças personalizadas.
+
+*Desde 2011 em Tijucas*, registrando histórias de família. ❤️
 
 Já vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.
 
@@ -142,14 +146,14 @@ Se quiser, te conto como preparar os looks da família. 🥰
 ```
 Não garantir roupa para qualquer idade/tamanho.
 
-## D+5 | `whatsapp_d5`: confiança desde 2011 + imprensa
-**Tipo:** vídeo `video_d5`; legenda condicional ao vídeo realmente mostrar bastidores/equipe/ambiente.
-### `video_d5.title`
+## D+5 | `whatsapp_d5`: pergaminho mágico no vídeo real (relato Antigravity)
+**Tipo:** vídeo `video_d5`. A inspeção local por OpenCV do Antigravity relatou uma personagem teatral com pergaminho mágico iluminado; os arquivos/frames/SHAs ainda precisam ser arquivados **localmente** para comprovação independente.
+### `video_d5.title` (caption curta)
 ```text
-📸 *Desde 2011 em Tijucas*, registrando famílias que voltam a cada Natal.
-É muito bonito acompanhar as crianças crescendo! ❤️
+✨ Um recadinho mágico apareceu na nossa Vila de Natal! 📜🎄
+Olha esse encanto... Quer ver os horários pra viver essa experiência?
 ```
-**Opção, apenas se houver mensagem separada aprovada:** “Saiu uma *reportagem especial publicitária* mostrando nossa Vila de Natal 2026: https://www.vipsocial.com.br/noticia/estudio-de-tijucas-transforma-natal-em-experiencia-para-toda-a-familia/59957”. Não dizer “eleitos melhores” ou “imprensa independente recomendou”.
+**Gate:** assistir ao clipe inteiro e confirmar o pergaminho. A personagem no vídeo NÃO significa participação presencial incluída no ensaio; pessoas/personagens não estão incluídos nos pacotes por padrão. A história “desde 2011” foi deslocada para o T0 (credibilidade em mensagem própria), evitando legenda desconexa.
 
 ## D+10 | `whatsapp_d10`: última ajuda gentil
 **Tipo:** vídeo `video_d10`.
