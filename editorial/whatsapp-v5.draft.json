@@ -17,7 +17,8 @@
       "20261026-API-contract: V4 requires EXACT URLs [evydencia.com/catalogo/natal, horarios, instagram] and stable natal2026-* IDs; direct checkout is a future gated enhancement.",
       "20261026 compression: shortened T0 and D+1/2/3/4 captions to native mobile WhatsApp; D+3 has one games demo URL; static D+1 fallback must be chosen explicitly if variable cannot render.",
       "20261026 ChatGPT audit: replaced D+1 runtime countdown token by static caption; archived dynamic candidate and made JSON sole source for editable copy.",
-      "20261026 Dossier17 review: first visible textual opt-out D+3, preserved H+1 reply STOP button per V4; D+4 10 short benefits in existing action; D+10 reminder footer, no new sends."
+      "20261026 Dossier17 review: first visible textual opt-out D+3, preserved H+1 reply STOP button per V4; D+4 10 short benefits in existing action; D+10 reminder footer, no new sends.",
+      "20261026 V5.2: T0 uses live {saudacao} (with/without name) and warmer two-scene proposal; countdown added as NON-EXECUTABLE D+1 metadata candidates, retaining safe literal title until canary."
     ],
     "id_policy": "Historical media IDs are NON-AUTHORITATIVE hints from prior extraction; never update by ID without current flow.manifest.mapping stage_roles + stage_messages proof.",
     "publication_requires": [
@@ -30,7 +31,10 @@
       "p0_d10_live_pending_count_and_safe_suppression_evidence",
       "human_approval_of_generated_preview",
       "smartvoice_receipt_status_reconciliation",
-      "runtime_text_render_canary_after_authorization"
+      "runtime_text_render_canary_after_authorization",
+      "morning_afternoon_evening_greeting_canary",
+      "days_weeks_countdown_real_worker_render_canary_before_dynamic_caption",
+      "no_lead_order_only_variables"
     ],
     "api_contract_validation": "Natal2026ProposalManifest::validate() current V4: action.title max 200 chars, message max 10000, allowed button URLs order fixed, WhatsApp formatted text literal, v4 email body_mode=text.",
     "release_policy": "GO_OFFLINE_REVIEW_ONLY; NO_GO_CANARY_AND_PRODUCTION_UNTIL_P0_SUPPRESSION_PROVED",
@@ -65,6 +69,23 @@
         "figurine_size_and_stock",
         "bubble_machine_2026_operational"
       ]
+    },
+    "runtime_variable_policy": {
+      "allowed_in_current_executable_fields": [
+        "{saudacao}",
+        "{primeiro_nome}"
+      ],
+      "optional_non_executable_candidates": [
+        "{natal_countdown_dias_descricao}",
+        "{natal_countdown_semanas_descricao}"
+      ],
+      "active_t0_greeting_awaits_runtime_canary": true,
+      "d1_static_title_until_runtime_canary": true,
+      "timezone_expected": "America/Sao_Paulo",
+      "christmas_countdown_target": "December 25, not studio session closure",
+      "no_order_scoped_tokens_on_pre_sale": true,
+      "no_repeated_greeting_in_every_followup": true,
+      "no_pretend_voice_audio_personalized_from_text": true
     }
   },
   "channels": {
@@ -83,8 +104,10 @@
         {
           "message_role": "intro_cta",
           "type": "action",
-          "message_with_name": "Oii, *{primeiro_nome}*! 🎄🥰\n\nNa *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨\n\nEstamos aqui *desde 2011*, fotografando histórias de família. ❤️\n\nJá te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.\n\n*Prefere semana ou fim de semana?*",
-          "message_without_name": "Oii! 🎄🥰\n\nNa *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨\n\nEstamos aqui *desde 2011*, fotografando histórias de família. ❤️\n\nJá te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.\n\n*Prefere semana ou fim de semana?*"
+          "message_with_name": "{saudacao}, *{primeiro_nome}*! 🥰🎄\n\nQue bom que você pediu nossa proposta! Preparamos *Natal + Ano Novo* na mesma sessão, com dois cenários encantadores. ✨\n\nSomos a Evydência, aqui em Tijucas *desde 2011*. ❤️\n\nJá te envio os 3 pacotes e o PDF completo. Temos opções a partir de *2x R$ 98*.\n\n*Você prefere vir na semana ou no fim de semana?*",
+          "message_without_name": "{saudacao}! 🥰🎄\n\nQue bom que você pediu nossa proposta! Preparamos *Natal + Ano Novo* na mesma sessão, com dois cenários encantadores. ✨\n\nSomos a Evydência, aqui em Tijucas *desde 2011*. ❤️\n\nJá te envio os 3 pacotes e o PDF completo. Temos opções a partir de *2x R$ 98*.\n\n*Você prefere vir na semana ou no fim de semana?*",
+          "runtime_variable_gate": "saudacao approved by VariableScope::GLOBAL_TOKENS and MessageVariableService::createGlobalMessageVariables; requires send-path canary with morning/afternoon/night + both variants + frozen snapshot verification before CRM publication",
+          "editorial_intent": "SAUDACAO_DINAMICA_ONLY_T0_TO_AVOID_ROBOTIC_REPETITION"
         },
         {
           "message_role": "cenarios_image",
@@ -200,8 +223,10 @@
           "asset_basename": "natal2026-rev357-v1-d01.mp4",
           "historical_media_id_hint_415": 1456,
           "historical_media_id_hint_416": 1472,
-          "countdown_gate": "STATIC_APPROVED_FOR_OFFLINE_REVIEW: no dynamic placeholder in executable title; token only after CRM send-time proof and explicit V5.1 approval.",
-          "previous_dynamic_candidate_archived_in": "docs/EDITORIAL-V5-20261026/relatorios/COUNTDOWN-RENDER-GATE.md"
+          "countdown_gate": "STATIC_TITLE_ACTIVE_IN_V5_DRAFT. Dynamic candidates are metadata ONLY, not mapped to messages.title; test actual Laravel worker parseMessage with Carbon::setTestNow 2026-10-26 BRT and 2026-12-24, PDF/whatsapp snapshots, and authenticated canary before switching title in revised manifest. Never infer session booking deadline from Christmas countdown.",
+          "previous_dynamic_candidate_archived_in": "docs/EDITORIAL-V5-20261026/relatorios/COUNTDOWN-RENDER-GATE.md",
+          "dynamic_candidate_title": "*{natal_countdown_dias_descricao}* 🎄\nSeus filhos crescem rápido... mas as fotos desta fase ficam pra sempre. ❤️",
+          "dynamic_candidate_weeks_title": "*{natal_countdown_semanas_descricao}* 🎄\nEsse é um daqueles momentos que dá vontade de guardar pra sempre. ❤️"
         }
       ]
     },
