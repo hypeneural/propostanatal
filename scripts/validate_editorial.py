@@ -20,7 +20,7 @@ ROLES = [
 SMS = [role for role in ROLES if role.startswith("sms_")]
 ALLOWED_TOKENS = {"primeiro_nome", "natal_countdown_dias_descricao"}
 ALLOWED_URLS = {
-    "https://reserva.fotosdenatal.com/",
+    "https://evydencia.com/catalogo/natal",
     "https://horarios.fotosdenatal.com/",
     "https://instagram.com/estudioevydenciaa",
 }
@@ -30,7 +30,7 @@ BANNED_PATTERNS = [
     r"\[(?:excited|laughs|whispers|mischievously|curious)\]",
     r"\bD\+\d+\b",
 ]
-CAPTION_MAX = 500
+CAPTION_MAX = 200  # Laravel Natal2026ProposalManifest::validate uses mb_strlen
 
 
 def check() -> list[str]:
@@ -64,8 +64,13 @@ def check() -> list[str]:
         if "PARARNATAL2026" not in named or "PARARNATAL2026" not in anonymous:
             errors.append("Do not delete initial opt-out")
     buttons = t0.get("buttons", [])
-    if len(buttons) != 3 or {b.get("url") for b in buttons} != ALLOWED_URLS:
-        errors.append("Initial button set has changed; verify all three canonical URLs")
+    expected_buttons = [
+        {"id": "natal2026-reservar", "type": "URL", "url": "https://evydencia.com/catalogo/natal", "label": "🎄 Reservar Agora"},
+        {"id": "natal2026-horarios", "type": "URL", "url": "https://horarios.fotosdenatal.com/", "label": "📆 Ver Horários"},
+        {"id": "natal2026-instagram", "type": "URL", "url": "https://instagram.com/estudioevydenciaa", "label": "📸 Nosso Instagram"},
+    ]
+    if buttons != expected_buttons:
+        errors.append("T0 buttons must match EXACT V4 IDs, types, URLs, labels, and ordering; checkout direct is not allowed in V4")
     d10 = by_role.get("document_d10") or {}
     if d10.get("status") != "blocked_do_not_publish":
         errors.append("D+10 suspicious PDF MUST remain blocked")
@@ -88,8 +93,14 @@ def check() -> list[str]:
                 tokens = set(re.findall(r"\{([a-z_]+)\}", body))
                 if tokens - ALLOWED_TOKENS:
                     errors.append(f"{role}/{field}: unknown tokens {sorted(tokens - ALLOWED_TOKENS)}")
-                if "```" in body or "<br" in body.lower():
-                    errors.append(f"{role}/{field}: unsupported formatting")
+                if "```" in body or "<br" in body.lower() or "**" in body or "__" in body:
+                    errors.append(f"{role}/{field}: unsupported GitHub Markdown/HTML/monospace formatting")
+                if body.count("*") % 2 or body.count("_") % 2:
+                    errors.append(f"{role}/{field}: unmatched WhatsApp bold/italic marker")
+                if len(body) > (CAPTION_MAX if field == "title" and msg.get("type") in ("image", "video", "attachment") else 10000):
+                    errors.append(f"{role}/{field}: exceeds technical content length")
+                if len(body) > 160 and field == "title" and msg.get("type") in ("image", "video"):
+                    print(f"EDITORIAL_WARN: {role}/{field} exceeds preferred 160-character caption")
                 for pat in BANNED_PATTERNS:
                     if re.search(pat, body, re.IGNORECASE):
                         errors.append(f"{role}/{field}: banned pattern {pat}")
