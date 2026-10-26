@@ -1,3 +1,10 @@
+## Ordem atual de trabalho — EDITORIAL_V5_DRAFT
+Quando a solicitação envolver melhorar copy/caption/vídeo/áudio, leia PRIMEIRO os quatro arquivos de `docs/EDITORIAL-V5-20261026/`, então `editorial/whatsapp-v5.draft.json`. Rode `python scripts/validate_editorial.py` e revise o conteúdo papel a papel, iniciando em `initial` (T0) e avançando para H+1, H+90, D+1, D+2, D+3, D+4, D+5, D+10. Nove papéis SMS ficam como `preserve_existing_v4`, Resend T0 e SmartVoice devem ser mantidos sem alteração nesta primeira revisão.
+
+**Duas proteções críticas:** (1) `editorial/whatsapp-v5.draft.json` NÃO é um manifesto compatível com o provisionador do CRM, nem autorização para aplicar mudanças. (2) `document_d10` é `blocked_do_not_publish` porque simula comprovante Pix, com snapshots antigos potencialmente pendentes — revalidar e tratar exclusivamente por mecanismo seguro/autorizado. Não executar DML, aplicar manifesto, reenviar ou alterar status. O repositório é público; nenhum relatório com dados de clientes pode entrar aqui.
+
+---
+
 # Guia operacional Antigravity — Proposta Natal 2026
 
 ## Missão imediata — AUDIT_ONLY
