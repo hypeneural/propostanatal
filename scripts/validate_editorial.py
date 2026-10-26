@@ -18,7 +18,7 @@ ROLES = [
     "sms_d10", "sms_d15", "sms_d20",
 ]
 SMS = [role for role in ROLES if role.startswith("sms_")]
-ALLOWED_TOKENS = {"primeiro_nome", "natal_countdown_dias_descricao"}
+ALLOWED_TOKENS = {"primeiro_nome", "saudacao"}
 ALLOWED_URLS = {
     "https://evydencia.com/catalogo/natal",
     "https://horarios.fotosdenatal.com/",
@@ -61,6 +61,8 @@ def check() -> list[str]:
         anonymous = message.get("message_without_name", "")
         if "{primeiro_nome}" not in named or "{primeiro_nome}" in anonymous:
             errors.append("415 must have first_name; 416 must not")
+        if not named.startswith("{saudacao}, *{primeiro_nome}*!") or not anonymous.startswith("{saudacao}!"):
+            errors.append("Both T0 variants must use the true send-time greeting in natural style")
         if "PARARNATAL2026" in named or "PARARNATAL2026" in anonymous:
             errors.append("T0 should be concise: repeated textual opt-out starts D+3, but STOP must remain functional")
     buttons = t0.get("buttons", [])
@@ -141,6 +143,17 @@ def check() -> list[str]:
         errors.append("D+1 caption must be literal until runtime variable expansion is proven")
     if video_d1.get("fallback_title") != video_d1.get("title"):
         errors.append("D+1 editorial fallback must match literal title; no worker fallback exists")
+    if "{natal_countdown_dias_descricao}" not in video_d1.get("dynamic_candidate_title",""):
+        errors.append("D+1 must retain OPTIONAL gated countdown-in-days candidate")
+    if "{natal_countdown_semanas_descricao}" not in video_d1.get("dynamic_candidate_weeks_title",""):
+        errors.append("D+1 must retain OPTIONAL gated countdown-in-weeks candidate")
+    if video_d1.get("dynamic_candidate_title") == video_d1.get("title"):
+        errors.append("D+1 dynamic candidate cannot become active title without a runtime canary")
+    variables = meta.get("runtime_variable_policy") or {}
+    if variables.get("active_t0_greeting_awaits_runtime_canary") is not True or variables.get("d1_static_title_until_runtime_canary") is not True:
+        errors.append("The greeting and countdown must remain gated before CRM release")
+    if variables.get("timezone_expected") != "America/Sao_Paulo":
+        errors.append("Greeting timezone must match business timezone")
     if meta.get("canonical_copy_path") != "editorial/whatsapp-v5.draft.json":
         errors.append("Only editorial/whatsapp-v5.draft.json may own executable copy proposals")
     if meta.get("release_policy") != "GO_OFFLINE_REVIEW_ONLY; NO_GO_CANARY_AND_PRODUCTION_UNTIL_P0_SUPPRESSION_PROVED":
@@ -155,4 +168,4 @@ if __name__ == "__main__":
         for issue in issues:
             print(" -", issue)
         sys.exit(1)
-    print("EDITORIAL_CHECK_OK: 19 roles, 9 SMS preserved, D+3 opt-out policy, 10 D+4 reasons, buttons, STATIC D+1 caption, D+10 block, NO_GO production")
+    print("EDITORIAL_CHECK_OK: 19 roles, 9 SMS preserved, D+3 opt-out policy, 10 D+4 reasons, buttons, T0 greeting + STATIC D+1 caption with gated countdown candidate, D+10 block, NO_GO production")
