@@ -10,32 +10,32 @@ As legendas de imagem/vídeo e os nomes de documentos só podem ser aplicados ap
 
 ### intro_cta — action
 
-**Campanha 415 — com nome** (287 caracteres Unicode)
+**Campanha 415 — com nome** (339 caracteres Unicode)
 
 ~~~text
-Oii, *{primeiro_nome}*! 🎄🥰
+{saudacao}, *{primeiro_nome}*! 🥰🎄
 
-Na *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨
+Que bom que você pediu nossa proposta! Preparamos *Natal + Ano Novo* na mesma sessão, com dois cenários encantadores. ✨
 
-Estamos aqui *desde 2011*, fotografando histórias de família. ❤️
+Somos a Evydência, aqui em Tijucas *desde 2011*. ❤️
 
-Já te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.
+Já te envio os 3 pacotes e o PDF completo. Temos opções a partir de *2x R$ 98*.
 
-*Prefere semana ou fim de semana?*
+*Você prefere vir na semana ou no fim de semana?*
 ~~~
 
-**Campanha 416 — sem nome** (268 caracteres Unicode)
+**Campanha 416 — sem nome** (320 caracteres Unicode)
 
 ~~~text
-Oii! 🎄🥰
+{saudacao}! 🥰🎄
 
-Na *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨
+Que bom que você pediu nossa proposta! Preparamos *Natal + Ano Novo* na mesma sessão, com dois cenários encantadores. ✨
 
-Estamos aqui *desde 2011*, fotografando histórias de família. ❤️
+Somos a Evydência, aqui em Tijucas *desde 2011*. ❤️
 
-Já te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.
+Já te envio os 3 pacotes e o PDF completo. Temos opções a partir de *2x R$ 98*.
 
-*Prefere semana ou fim de semana?*
+*Você prefere vir na semana ou no fim de semana?*
 ~~~
 
 ### cenarios_image — image
