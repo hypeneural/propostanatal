@@ -1,3 +1,5 @@
+> **MATRIZ HISTÓRICA, PRE-V5.1:** A direção solicitou reduzir a repetição do aviso textual de descadastro no T0/H+1/H+90/D+2 e reforçá-lo a partir de D+3. Foi adicionada uma ação D+4 de dez benefícios curtos. Este arquivo ainda descreve a V5 anterior; consulte a [copy única](../../14-COPY-CANONICA-V5-CANDIDATA.md) e o [parecer](../../18-PARECER-DOSSIE17-E-IMPLEMENTACAO.md). O botão de STOP em H+1 permanece obrigatório na V4 e pedidos de interrupção devem ser respeitados sempre.
+
 # Decisão Editorial V5 por Papel e Campo — Natal 2026
 
 **Data da Auditoria:** 2026-10-26T16:15:25Z  
