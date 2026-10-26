@@ -1,3 +1,5 @@
+> **Revisão forense adicional:** [docs/REVISAO-FORENSE-INDEPENDENTE-20261025.md](docs/REVISAO-FORENSE-INDEPENDENTE-20261025.md) documenta correções importantes em PDF, snapshots, relatórios dinâmicos, SMS, e-mail e voz. Leia antes de alterar o CRM.
+
 # Proposta Natal 2026 — auditoria independente
 
 Ferramentas **separadas do código do CRM** para inventariar, conferir e preparar melhorias na comunicação comercial de Natal 2026 do Estúdio Evydência. O projeto **não faz deploy, não modifica o CRM e não envia mensagens**.
