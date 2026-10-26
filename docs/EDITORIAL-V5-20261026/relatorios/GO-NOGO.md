@@ -1,3 +1,5 @@
+> **PARECER SUBSTITUÍDO:** Este GO/NOGO é uma conclusão histórica e não deve ser lido como aprovação operacional. Parecer vigente em `../15-PARECER-VALIDACAO-GO-NOGO.md`: **GO exclusivamente para revisão/homologação OFFLINE e NO-GO para canário e produção** até confirmação e supressão P0 D+10, hash/manifesto, consentimento, entregabilidade e áudio efetivo. A caption D+1 do JSON é agora estática, e os relatos de voz divergem entre `AUDITORIA-FINAL.md` e `timeline.md`.
+
 # GO-NOGO — Avaliação Executiva de Prontidão e Governança
 
 **Data da Decisão:** 26/10/2026  
