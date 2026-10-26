@@ -10,7 +10,9 @@ try {
     )
     foreach ($cmd in $commands) {
         Write-Host ("RUN " + ($cmd -join " ")) -ForegroundColor Cyan
-        & $cmd[0] $cmd[1..($cmd.Length - 1)]
+        $executable = $cmd[0]
+        $arguments = $cmd[1..($cmd.Length - 1)]
+        & $executable @arguments
         if ($LASTEXITCODE -ne 0) { throw "Check failed with exit $LASTEXITCODE" }
     }
     Write-Host "EDITORIAL CHECKS OK — no production actions" -ForegroundColor Green
