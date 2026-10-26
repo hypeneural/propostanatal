@@ -1,3 +1,5 @@
+> **LIMITAÇÃO METODOLÓGICA:** `MEDIA_MATCH` documenta SHA-256 e tamanho de oito MP4 baixados localmente, acompanhados por amostras visuais em 15%, 50% e 85%. **Não é auditoria frame a frame**, nem comprovação independente de faixa de áudio integral, direitos, entrega Z-API ou visualização no celular. Antes de publicação, assistir/escutar clipes de risco e confirmar o arquivo exato vinculado no manifesto.
+
 # MIDIA-EVIDENCIAS — Auditoria Criptográfica e Audiovisual de Mídias
 
 **Data da Auditoria:** 26/10/2026  
