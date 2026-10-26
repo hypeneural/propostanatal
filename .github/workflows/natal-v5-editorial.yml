@@ -39,6 +39,8 @@ jobs:
         run: python scripts/check_forensic_gates.py --self-test
       - name: Audit D+10, voice and fail-closed offline status
         run: python scripts/check_forensic_gates.py
+      - name: Validate safe manager import preview (not executable)
+        run: python scripts/plan_manager_v5.py --check
       - name: Unit test V4 inventory reconciliation
         run: python scripts/reconcile_v4_local.py --self-test
       - name: Unit test local MP4 hashing utility
