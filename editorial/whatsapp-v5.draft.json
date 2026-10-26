@@ -15,7 +15,8 @@
     "editorial_updates": [
       "20261026 forensic review: D+5 caption aligned with reported magic scroll video, business longevity moved to T0.",
       "20261026-API-contract: V4 requires EXACT URLs [evydencia.com/catalogo/natal, horarios, instagram] and stable natal2026-* IDs; direct checkout is a future gated enhancement.",
-      "20261026 compression: shortened T0 and D+1/2/3/4 captions to native mobile WhatsApp; D+3 has one games demo URL; static D+1 fallback must be chosen explicitly if variable cannot render."
+      "20261026 compression: shortened T0 and D+1/2/3/4 captions to native mobile WhatsApp; D+3 has one games demo URL; static D+1 fallback must be chosen explicitly if variable cannot render.",
+      "20261026 ChatGPT audit: replaced D+1 runtime countdown token by static caption; archived dynamic candidate and made JSON sole source for editable copy."
     ],
     "id_policy": "Historical media IDs are NON-AUTHORITATIVE hints from prior extraction; never update by ID without current flow.manifest.mapping stage_roles + stage_messages proof.",
     "publication_requires": [
@@ -24,9 +25,16 @@
       "media_sha256_confirmation",
       "approval",
       "snapshot_review",
-      "dry_run"
+      "dry_run",
+      "p0_d10_live_pending_count_and_safe_suppression_evidence",
+      "human_approval_of_generated_preview",
+      "smartvoice_receipt_status_reconciliation",
+      "runtime_text_render_canary_after_authorization"
     ],
-    "api_contract_validation": "Natal2026ProposalManifest::validate() current V4: action.title max 200 chars, message max 10000, allowed button URLs order fixed, WhatsApp formatted text literal, v4 email body_mode=text."
+    "api_contract_validation": "Natal2026ProposalManifest::validate() current V4: action.title max 200 chars, message max 10000, allowed button URLs order fixed, WhatsApp formatted text literal, v4 email body_mode=text.",
+    "release_policy": "GO_OFFLINE_REVIEW_ONLY; NO_GO_CANARY_AND_PRODUCTION_UNTIL_P0_SUPPRESSION_PROVED",
+    "canonical_copy_path": "editorial/whatsapp-v5.draft.json",
+    "archival_report_policy": "docs/EDITORIAL-V5-20261026/relatorios are dated historical evidence, NOT approved executable copy"
   },
   "channels": {
     "whatsapp": "draft_changes",
@@ -148,7 +156,7 @@
       "role": "whatsapp_d1",
       "anchor": "D+1",
       "focus": "memoria e countdown",
-      "status": "draft_review_required",
+      "status": "draft_static_caption_no_runtime_token",
       "gates": [
         "confirm_token_rendered_at_send_time"
       ],
@@ -156,12 +164,13 @@
         {
           "message_role": "video_d1",
           "type": "video",
-          "title": "🥹 Daqui a alguns anos, é essa fase que você vai querer rever. ❤️\n*{natal_countdown_dias_descricao}* 🎄",
-          "fallback_title": "🥹 Daqui a alguns anos, é essa fase que você vai querer rever. ❤️\nA temporada de Natal passa rapidinho. 🎄",
+          "title": "🥹 O tempo voa... mas as fotos desta fase ficam pra sempre. ❤️\nQue tal guardar esse Natal em família? 🎄",
+          "fallback_title": "🥹 O tempo voa... mas as fotos desta fase ficam pra sempre. ❤️\nQue tal guardar esse Natal em família? 🎄",
           "asset_basename": "natal2026-rev357-v1-d01.mp4",
           "historical_media_id_hint_415": 1456,
           "historical_media_id_hint_416": 1472,
-          "countdown_gate": "Fallback is editorial field only; current CRM runtime does not automatically select fallback_title. Verify token replacement at dispatch in title, else use fallback_title as the actual approved title in full manifest before publication."
+          "countdown_gate": "STATIC_APPROVED_FOR_OFFLINE_REVIEW: no dynamic placeholder in executable title; token only after CRM send-time proof and explicit V5.1 approval.",
+          "previous_dynamic_candidate_archived_in": "docs/EDITORIAL-V5-20261026/relatorios/COUNTDOWN-RENDER-GATE.md"
         }
       ]
     },
