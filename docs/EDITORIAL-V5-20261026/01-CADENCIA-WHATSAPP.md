@@ -10,38 +10,34 @@
 
 ## E01 / T0 | abertura + imagem pacotes + PDF: converter sem demora
 **Objetivo:** identificar Tijucas, oferecer dois cenários e receber o orçamento completo imediatamente. 
-**Sem alongar:** mensagem de 4–6 linhas; os detalhes ficam no PDF e na arte.
+**Sem alongar:** mensagem aproximadamente 300–350 caracteres, com preço, confiança, PDF e CTA; detalhes na arte e no documento.
 
 ### 415 — `intro_cta.message`
 ```text
-Oii, *{primeiro_nome}*! 🥰🎄
-A *Vila de Natal* da Evydência, em Tijucas, está linda!
+Oii, *{primeiro_nome}*! 🎄🥰
 
-✨ *Natal + Ano Novo em uma única sessão.*
-E a magia continua em casa, com fotos reveladas e lembranças personalizadas.
+Na *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨
 
-*Desde 2011 em Tijucas*, registrando histórias de família. ❤️
+Estamos aqui *desde 2011*, fotografando histórias de família. ❤️
 
-Já vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.
+Já te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.
 
-Vocês preferem *semana ou fim de semana*?
+*Prefere semana ou fim de semana?*
 
 _Para parar lembretes, responda PARARNATAL2026._
 ```
 
 ### 416 — `intro_cta.message`
 ```text
-Oii! 🥰🎄
-A *Vila de Natal* da Evydência, em Tijucas, está linda!
+Oii! 🎄🥰
 
-✨ *Natal + Ano Novo em uma única sessão.*
-E a magia continua em casa, com fotos reveladas e lembranças personalizadas.
+Na *Evydência*, em Tijucas, preparamos *2 cenários* na mesma sessão: *Natal + Ano Novo*! ✨
 
-*Desde 2011 em Tijucas*, registrando histórias de família. ❤️
+Estamos aqui *desde 2011*, fotografando histórias de família. ❤️
 
-Já vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.
+Já te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.
 
-Vocês preferem *semana ou fim de semana*?
+*Prefere semana ou fim de semana?*
 
 _Para parar lembretes, responda PARARNATAL2026._
 ```
@@ -104,10 +100,8 @@ Se preferir, dá pra escolher o horário direto no botão. 📅
 **Tipo:** vídeo `video_d1`.
 ### `video_d1.title`
 ```text
-🥹 Seus filhos crescem, mas as fotos deste Natal ficam.
-
+🥹 Daqui a alguns anos, é essa fase que você vai querer rever. ❤️
 *{natal_countdown_dias_descricao}* 🎄
-Ainda dá tempo de escolher uma data especial pra vocês.
 ```
 **Gate:** só usar token se renderizar corretamente **no momento do envio** e não ficar estático em snapshot T0. Fallback aprovado sem contagem: “A temporada de ensaios passa rapidinho.” Nunca confundir countdown do Natal com a data de encerramento dos ensaios.
 
@@ -115,8 +109,8 @@ Ainda dá tempo de escolher uma data especial pra vocês.
 **Tipo:** vídeo `video_2dias` + ação `lembrete_2dias`.
 ### `video_2dias.title`
 ```text
-🎆 Uma surpresa que vale por duas:
-além das fotos de Natal, tem *cenário de Ano Novo* na mesma sessão! ✨
+🎆 *Natal + Ano Novo*, num ensaio só!
+Dois cenários pra guardar mais momentos da família. ✨
 ```
 ### `lembrete_2dias.message`
 ```text
@@ -129,8 +123,8 @@ Não manter a ação com CTA duplicado caso a legenda já tenha link.
 **Material:** captura real vertical do celular navegando na galeria, jogo da memória e quebra-cabeça feitos com fotos autorizadas da família.
 ### `video_d3.title`
 ```text
-🎮 A parte que as crianças amam!
-As fotos viram *jogos personalizados* e uma galeria pra família reviver tudo. ❤️
+🎮 As fotos do ensaio viram *jogos personalizados*!
+Quer testar? https://jogos.fotosdenatal.com/
 ```
 **Gate comercial:** direção afirma jogos+galeria em todas as sessões; validar entrega real nos 3 pacotes e não citar quantidade de jogos enquanto catálogo/checkout divergirem.
 
@@ -138,8 +132,8 @@ As fotos viram *jogos personalizados* e uma galeria pra família reviver tudo. �
 **Tipo:** vídeo `video_4dias` + ação `lembrete_4dias`.
 ### `video_4dias.title`
 ```text
-👗 Já pensou nas roupinhas?
-Aqui temos figurinos e acessórios infantis conforme tamanho e disponibilidade. ✨
+👗 Figurinos, brincadeiras e até *bolhinhas de sabão*! 🫧
+Aqui, o ensaio também é uma experiência. ❤️
 ```
 ### `lembrete_4dias.message`
 ```text
