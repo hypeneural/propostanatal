@@ -1,0 +1,50 @@
+name: Natal V5 - verificacoes editoriais offline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'editorial/**'
+      - 'scripts/**'
+      - 'docs/EDITORIAL-V5-20261026/**'
+      - '.github/workflows/natal-v5-editorial.yml'
+  pull_request:
+    paths:
+      - 'editorial/**'
+      - 'scripts/**'
+      - 'docs/EDITORIAL-V5-20261026/**'
+      - '.github/workflows/natal-v5-editorial.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  offline-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout sanitized repository only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate JSON fields and CRM V4 button allowlist
+        run: python scripts/validate_editorial.py
+      - name: Prove canonical Markdown matches JSON
+        run: python scripts/render_canonical_v5.py --check
+      - name: Unit test historical forensic parsing
+        run: python scripts/check_forensic_gates.py --self-test
+      - name: Audit D+10, voice and fail-closed offline status
+        run: python scripts/check_forensic_gates.py
+      - name: Unit test V4 inventory reconciliation
+        run: python scripts/reconcile_v4_local.py --self-test
+      - name: Unit test local MP4 hashing utility
+        run: python scripts/inspect_local_media.py --self-test
+      - name: Unit test all static-asset inventory utility
+        run: python scripts/review_v4_assets.py --self-test
+
+# This workflow has NO production env, DB, VPS, API tokens, messaging actions or --apply.
+# A green result is GO for editorial offline review ONLY, NEVER production approval.
