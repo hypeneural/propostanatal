@@ -85,6 +85,7 @@ try {
         'content_profile_version' => $manifest['content_profile_version'] ?? null,
         'status' => $manifest['status'] ?? null,
         'manifest_hash' => $manifest['manifest_hash'] ?? null,
+        'configuration_hash' => $manifest['configuration_hash'] ?? null,
         'mapping' => $manifest['mapping'] ?? null,
         'retained_mapping' => $manifest['retained_catalog']['mapping'] ?? null,
     ];
@@ -218,6 +219,11 @@ try {
     };
 
     foreach ($messages as &$m) {
+        // Non-secret storage basename for cross-checking manifest/media; never export a signed query or arbitrary folder.
+        $rawMedia = trim((string)($m['url'] ?? ''));
+        $rawPath = (string)(parse_url($rawMedia, PHP_URL_PATH) ?: $rawMedia);
+        $candidate = rawurldecode(basename(str_replace('\\', '/', $rawPath)));
+        $m['media_basename'] = preg_match('/\A[A-Za-z0-9._-]{1,180}\z/D', $candidate) && $rawMedia !== '' ? $candidate : null;
         $m['url'] = $resolveMediaUrl($m['url'] ?? null, $m['type'] ?? null);
         $m['link'] = $cleanUrl($m['link'] ?? null);
 
@@ -342,12 +348,12 @@ try {
 
     // Export messages CSV
     $f = fopen("$folder/messages.csv", 'wb');
-    fputcsv($f, ['campaign_id', 'stage_id', 'stage_name', 'catalog_class', 'message_id', 'sort', 'type', 'internal_name', 'title', 'message', 'description', 'caption_candidate', 'url', 'link']);
+    fputcsv($f, ['campaign_id', 'stage_id', 'stage_name', 'catalog_class', 'message_id', 'sort', 'type', 'internal_name', 'title', 'message', 'description', 'caption_candidate', 'media_basename', 'url', 'link']);
     foreach ($stages as $s) {
         foreach ($s['messages'] as $l) {
             $m = $l['message'];
             if (!$m) continue;
-            fputcsv($f, [$s['campaign_id'], $s['id'], $s['name'], $s['catalog_class'], $m['id'], $l['sort'], $m['type'], $m['name'], $m['title'], $m['message'], $m['description'], $m['caption_candidate'], $m['url'], $m['link']]);
+            fputcsv($f, [$s['campaign_id'], $s['id'], $s['name'], $s['catalog_class'], $m['id'], $l['sort'], $m['type'], $m['name'], $m['title'], $m['message'], $m['description'], $m['caption_candidate'], $m['media_basename'], $m['url'], $m['link']]);
         }
     }
     fclose($f);
