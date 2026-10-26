@@ -101,7 +101,7 @@ try {
          $v=json_decode((string)($a[$field]??''),true);
          $a[$field]=is_array($v)?$v:[];
        }
-       $allowed=['text','message','subject','body_mode','fallback_text','flow_id','voice_mode','skip_if_converted','from'];
+       $allowed=['text','message','subject','body_mode','html','body_html','body_text','fallback_text','flow_id','voice_mode','skip_if_converted','caption','fileName','buttons','natal_email','from'];
        $a['payload']=array_intersect_key($a['payload'],array_flip($allowed));
        unset($a['payload']['from']); // from may be personal address
        $a['conditions']=array_intersect_key($a['conditions'],array_flip(['skip_if_converted','require_consent','stop_on_reply']));
@@ -133,9 +133,30 @@ try {
        $m['url']=$resolveMediaUrl($m['url']??null, $m['type']??null);
        $m['link']=$cleanUrl($m['link']??null);
        // Keep buttons in raw JSON only if whitelisted button fields; never include arbitrary authorization headers.
-       $btn=json_decode((string)($m['buttons']??''),true);
-       $m['buttons']=is_array($btn)?array_map(static fn($b)=>is_array($b)?array_intersect_key($b,array_flip(['type','text','label','url','id'])):null,$btn):[];
-       foreach($m['buttons'] as &$button)if(is_array($button)&&isset($button['url']))$button['url']=$cleanUrl($button['url']);unset($button);
+       $buttonRaw=(string)($m['buttons']??'');
+       $btn=json_decode($buttonRaw,true);
+       if (is_array($btn)) {
+           $m['buttons']=array_values(array_filter(array_map(static fn($b)=>is_array($b)?array_intersect_key($b,array_flip(['type','text','label','url','id','phone'])):null,$btn)));
+       } else {
+           $m['buttons']=[];
+           foreach (preg_split('/\R/u',$buttonRaw) as $line) {
+               $line=trim($line);
+               if ($line==='')continue;
+               $parts=explode(';',$line,4);
+               if(count($parts)>1) {
+                   $kind=strtoupper(trim($parts[1]));
+                   $m['buttons'][]=['id'=>trim($parts[0]),'type'=>$kind,'url'=>$kind==='URL'?($parts[2]??null):null,
+                      'phone'=>$kind==='CALL'?('[PHONE OMITTED]'):null,
+                      'label'=>trim($parts[$kind==='URL'||$kind==='CALL'?3:2]??'')];
+               } else {
+                   $plain=explode(',',$line,2);
+                   if(count($plain)===2)$m['buttons'][]=['id'=>trim($plain[0]),'label'=>trim($plain[1])];
+               }
+           }
+       }
+       foreach($m['buttons'] as &$button) {
+           if(is_array($button) && isset($button['url']))$button['url']=$cleanUrl($button['url']);
+       }unset($button);
        $m['carousel']='[omitted: requires individual review for sensitive URLs]';
        // CampaignMessageService passes $message->title as caption for image, video, and attachment
        $m['caption_source_candidate']=in_array((string)($m['type']??''),['image','video'],true)?'title -> caption':(((string)($m['type']??''))==='attachment'?'title -> fileName':'inspect serializer');
