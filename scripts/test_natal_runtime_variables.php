@@ -12,6 +12,10 @@
  */
 declare(strict_types=1);
 
+use App\Models\Message;
+use App\Services\MessageVariableService;
+use Illuminate\Support\Carbon;
+
 $root = getenv('NATAL_CRM_ROOT');
 if (! is_string($root) || $root === '') {
     fwrite(STDERR, "NATAL_CRM_ROOT required; point to local CRM checkout.\n");
@@ -33,10 +37,6 @@ if ($tz !== 'America/Sao_Paulo') {
     fwrite(STDERR, "BLOCKED: app.timezone is {$tz}, expected America/Sao_Paulo.\n");
     exit(2);
 }
-
-use App\Models\Message;
-use App\Services\MessageVariableService;
-use Illuminate\Support\Carbon;
 
 $cases = [
     ['2026-10-26 08:00:00', 'Bom dia'],
