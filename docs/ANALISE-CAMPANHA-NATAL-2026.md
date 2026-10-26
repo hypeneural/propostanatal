@@ -3,7 +3,7 @@
 > **Documento Canônico de Referência e Auditoria Multicanal**  
 > **Status:** AUDITORIA FORENSE CONCLUÍDA (Base real de produção comprovada)  
 > **Data:** 26 de Outubro de 2026  
-> **Origem dos Fatos:** `PRODUCAO_DB_READ_ONLY` (Conexão MySQL autorizada, Host: `185.241.151.207:3306`, Banco: `evyd25`, Transação SNAPSHOT READ-ONLY)  
+> **Origem dos Fatos:** `PRODUCAO_DB_READ_ONLY` (Conexão MySQL autorizada, Host e banco omitidos por segurança (artefatos de conexão somente locais), Transação SNAPSHOT READ-ONLY)  
 > **Manifesto Ativo:** `natal2026-content-v4-20261021` (Content Profile v4, Status: `approved`, Hash: `05528208bbcb94c3d3b2c9b0d8069fe3c8f883626bc3a35c510506aea5fc6cce`)  
 > **Repositório Independente:** `hypeneural/propostanatal`  
 > **Modo Operacional:** AUDIT_ONLY (Sem DML, sem deploy, sem disparos, sem modificações produtivas)
