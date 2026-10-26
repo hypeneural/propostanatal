@@ -1,5 +1,8 @@
 # Referência técnica confirmada — não é cópia do banco
 
+> Para a análise factual completa contra o banco de produção `evyd25`, matriz comparativa das campanhas 415 e 416, catálogo de todas as URLs absolutas de mídia e governança de mudanças, consulte:
+> **[docs/ANALISE-CAMPANHA-NATAL-2026.md](ANALISE-CAMPANHA-NATAL-2026.md)**.
+
 Consulta ao repositório `hypeneural/evydencia-crm` em 25/10/2026: main `42c29edd287b6e5531331d3da0cca61906679672`. Documento `docs/active/natal-2026-proposta/manifesto-natal-2026.v4.json`, revisão `natal2026-content-v4-20261021` (approved), possui 19 etapas por variante.
 
 **Autoridades distintas:** `proposal_flows.settings.readiness.manifest.mapping` seleciona IDs de estágio atuais para novas propostas; `retained_catalog` mantém conteúdo antigo; `campaign_scheduleds.suppression_snapshot.natal_execution_plan` congela execuções já criadas. As campanhas 415 e 416 não são intercambiáveis.

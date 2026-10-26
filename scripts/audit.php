@@ -112,8 +112,25 @@ try {
       $p=parse_url($u);if(!is_array($p)||empty($p['host'])||!empty($p['user'])||!empty($p['pass']))return null;
       return ($p['scheme']??'https').'://'.$p['host'].($p['path']??'');
     };
+    $resolveMediaUrl=static function(?string $rawUrl, ?string $type) use ($cleanUrl): ?string {
+        if (!$rawUrl || trim($rawUrl) === '') return null;
+        $rawUrl = trim($rawUrl);
+        if (preg_match('~^https?://~i', $rawUrl)) {
+            return $cleanUrl($rawUrl);
+        }
+        $routePrefix = match ($type) {
+            'image' => 'image',
+            'video' => 'video',
+            'attachment' => 'attachment',
+            'audio' => 'audio',
+            'call' => 'call-audio',
+            'sticker' => 'sticker',
+            default => 'attachment',
+        };
+        return "https://evydencia.com/resources/{$routePrefix}/" . rawurlencode($rawUrl);
+    };
     foreach($messages as &$m){
-       $m['url']=$cleanUrl($m['url']??null);
+       $m['url']=$resolveMediaUrl($m['url']??null, $m['type']??null);
        $m['link']=$cleanUrl($m['link']??null);
        // Keep buttons in raw JSON only if whitelisted button fields; never include arbitrary authorization headers.
        $btn=json_decode((string)($m['buttons']??''),true);
