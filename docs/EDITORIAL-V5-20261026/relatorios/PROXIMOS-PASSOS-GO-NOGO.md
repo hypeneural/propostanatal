@@ -1,3 +1,5 @@
+> **PARECER SUBSTITUÍDO / NÃO É AUTORIZAÇÃO:** A rubrica “100%” não é demonstrada por três frames de MP4; SMS/Resend/SmartVoice preservados não equivalem à homologação dos canais. Consulte `../15-PARECER-VALIDACAO-GO-NOGO.md`, e para conteúdo atualizado `../14-COPY-CANONICA-V5-CANDIDATA.md`. D+10 P0 em aberto; nenhuma operação de publicação é autorizada.
+
 # PROXIMOS-PASSOS-GO-NOGO — Matriz Executiva de Governança e Transição de Fase
 
 **Data:** 26/10/2026  
