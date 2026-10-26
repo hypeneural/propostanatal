@@ -1,3 +1,5 @@
+> **NOTA DE REVISÃO (25/10/2026):** este documento contém conclusões retificadas pela [revisão forense independente](REVISAO-FORENSE-INDEPENDENTE-20261025.md). Em especial, no envio de PDF `title` vira `fileName` (não `caption`), alterações no catálogo podem NÃO alcançar execuções congeladas e `completed` da etapa não comprova `delivered` ao cliente. O áudio SmartVoice e o arquivo PDF D+10 ainda requerem inspeção de conteúdo e prova de execução. Os totais históricos abaixo representam a extração relatada naquele momento, não o estado atual garantido. **Não editar produção apenas com base neste documento.**
+
 # Auditoria e Análise Técnica Aprofundada — Campanhas de Natal 2026 (415 e 416)
 
 > **Documento Canônico de Referência e Auditoria**  
