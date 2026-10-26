@@ -1,3 +1,5 @@
+> **NOTA DE ATUALIZAÇÃO (26/10/2026):** o planejamento original abaixo precede a V5 editorial. O catálogo público de hoje confirma **1/5/10 jogos digitais** (Ho-Ho-Ho / Então é Natal / Boas Festas), não a referência antiga de “2/4 jogos base” usada aqui. Use [a matriz de fontes e benefícios atualizada](EDITORIAL-V5-20261026/00-FONTES-E-CLAIMS.md). Nenhuma peça V5 foi aplicada ao CRM. Os snapshots e o PDF D+10 continuam bloqueios a verificar.
+
 # Plano de prontidão da proposta Natal 2026
 Data 26/10/2026. Estado: PROPOSTA DE MELHORIAS; sem alterações no CRM de produção.
 
