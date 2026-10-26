@@ -106,8 +106,15 @@ def check() -> list[str]:
                     if re.search(pat, body, re.IGNORECASE):
                         errors.append(f"{role}/{field}: banned pattern {pat}")
     d1 = by_role.get("whatsapp_d1") or {}
-    if not any(m.get("fallback_title") for m in d1.get("message_edits", [])):
-        errors.append("Countdown needs an explicit fallback without variable")
+    video_d1 = next((m for m in d1.get("message_edits", []) if m.get("message_role") == "video_d1"), {})
+    if not isinstance(video_d1.get("title"), str) or "{natal_countdown_" in video_d1.get("title", ""):
+        errors.append("D+1 caption must be literal until runtime variable expansion is proven")
+    if video_d1.get("fallback_title") != video_d1.get("title"):
+        errors.append("D+1 editorial fallback must match literal title; no worker fallback exists")
+    if meta.get("canonical_copy_path") != "editorial/whatsapp-v5.draft.json":
+        errors.append("Only editorial/whatsapp-v5.draft.json may own executable copy proposals")
+    if meta.get("release_policy") != "GO_OFFLINE_REVIEW_ONLY; NO_GO_CANARY_AND_PRODUCTION_UNTIL_P0_SUPPRESSION_PROVED":
+        errors.append("Production and canary must remain gated")
     return errors
 
 
@@ -118,4 +125,4 @@ if __name__ == "__main__":
         for issue in issues:
             print(" -", issue)
         sys.exit(1)
-    print("EDITORIAL_CHECK_OK: 19 roles, 9 SMS preserved, opt-out, buttons, dynamic countdown gate, D+10 block")
+    print("EDITORIAL_CHECK_OK: 19 roles, 9 SMS preserved, opt-out, buttons, STATIC D+1 caption, D+10 block, NO_GO production")
