@@ -11,7 +11,10 @@
     "role_count": 19,
     "write_to_production": false,
     "snapshot_mutation_forbidden": true,
-    "disclaimer": "This is an editorial specification, NOT an executable production manifest; full diff, approved hash and controlled provisioner required."
+    "disclaimer": "This is an editorial specification, NOT an executable production manifest; full diff, approved hash and controlled provisioner required.",
+    "editorial_updates": [
+      "20261026 forensic review: D+5 caption aligned with reported magic scroll video, business longevity moved to T0."
+    ]
   },
   "channels": {
     "whatsapp": "draft_changes",
@@ -29,8 +32,8 @@
         {
           "message_role": "intro_cta",
           "type": "action",
-          "message_with_name": "Oii, *{primeiro_nome}*! 🥰🎄\nA *Vila de Natal* da Evydência, em Tijucas, está linda!\n\n✨ *Natal + Ano Novo em uma única sessão.*\nE a magia continua em casa, com fotos reveladas e lembranças personalizadas.\n\nJá vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.\n\nVocês preferem *semana ou fim de semana*?\n\n_Para parar lembretes, responda PARARNATAL2026._",
-          "message_without_name": "Oii! 🥰🎄\nA *Vila de Natal* da Evydência, em Tijucas, está linda!\n\n✨ *Natal + Ano Novo em uma única sessão.*\nE a magia continua em casa, com fotos reveladas e lembranças personalizadas.\n\nJá vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.\n\nVocês preferem *semana ou fim de semana*?\n\n_Para parar lembretes, responda PARARNATAL2026._"
+          "message_with_name": "Oii, *{primeiro_nome}*! 🥰🎄\nA *Vila de Natal* da Evydência, em Tijucas, está linda!\n\n✨ *Natal + Ano Novo em uma única sessão.*\nE a magia continua em casa, com fotos reveladas e lembranças personalizadas.\n\n*Desde 2011 em Tijucas*, registrando histórias de família. ❤️\n\nJá vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.\n\nVocês preferem *semana ou fim de semana*?\n\n_Para parar lembretes, responda PARARNATAL2026._",
+          "message_without_name": "Oii! 🥰🎄\nA *Vila de Natal* da Evydência, em Tijucas, está linda!\n\n✨ *Natal + Ano Novo em uma única sessão.*\nE a magia continua em casa, com fotos reveladas e lembranças personalizadas.\n\n*Desde 2011 em Tijucas*, registrando histórias de família. ❤️\n\nJá vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.\n\nVocês preferem *semana ou fim de semana*?\n\n_Para parar lembretes, responda PARARNATAL2026._"
         },
         {
           "message_role": "cenarios_image",
@@ -229,18 +232,22 @@
     {
       "role": "whatsapp_d5",
       "anchor": "D+5",
-      "focus": "autoridade+familias",
-      "status": "draft_review_required",
+      "focus": "personagem mágico/pergaminho + reserva sem prometer personagem presencial",
+      "status": "draft_visual_claim_requires_local_proof",
       "message_edits": [
         {
           "message_role": "video_d5",
           "type": "video",
-          "title": "📸 *Desde 2011 em Tijucas*, registrando famílias que voltam a cada Natal.\nÉ muito bonito acompanhar as crianças crescendo! ❤️",
+          "title": "✨ Um recadinho mágico apareceu na nossa Vila de Natal! 📜🎄\nOlha esse encanto... Quer ver os horários pra viver essa experiência?",
           "asset_basename": "natal2026-rev357-v1-d05.mp4",
           "media_id_415": 1458,
-          "media_id_416": 1474
+          "media_id_416": 1474,
+          "asset_relevance": "Reported Antigravity local OpenCV frames show theatrical fairy/elf with illuminated scroll; frame hash and timestamps have not been independently verified.",
+          "claim_gate": "Clip of theatrical character is promotional artwork; do NOT imply character is included in purchased session."
         }
-      ]
+      ],
+      "rationale": "A legenda anterior 'desde 2011' era desconexa do vídeo D+5 segundo inspeção local Antigravity; deslocar prova de antiguidade para T0/pós-vídeo apropriado.",
+      "review_source": "artifact_antigravity_20261026_visual_review_unreproduced"
     },
     {
       "role": "sms_d5",
