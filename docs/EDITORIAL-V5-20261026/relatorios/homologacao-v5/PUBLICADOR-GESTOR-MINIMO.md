@@ -1,3 +1,5 @@
+> **REVISÃO DE SEGURANÇA (26/10):** A opção de interface para “cancelar todos os agendamentos pendentes” é ampla demais. O publicador futuro deve identificar exatamente **qual documento/asset/role** é perigoso, proteger worker/outbox e impedir novos runs. Não basta transicionar runs por ID de etapa. Editar `MessageController.update` não reaplica hash; vide [19 Handoff](../../19-HANDOFF-ANTIGRAVITY-GESTOR.md). Nenhum publicador foi desenvolvido no CRM nesta rodada.
+
 # Especificação Arquitetural: Publicador Versionado pelo Gestor (Sem VPS)
 
 **Data:** 2026-10-26T16:15:25Z  
