@@ -9,7 +9,8 @@ try {
         @("python", "scripts/preview_whatsapp_v5.py", "--role", "initial"),
         @("python", "scripts/render_canonical_v5.py", "--check"),
         @("python", "scripts/check_forensic_gates.py", "--self-test"),
-        @("python", "scripts/check_forensic_gates.py")
+        @("python", "scripts/check_forensic_gates.py"),
+        @("python", "scripts/plan_manager_v5.py", "--check")
     )
     foreach ($cmd in $commands) {
         Write-Host ("RUN " + ($cmd -join " ")) -ForegroundColor Cyan
