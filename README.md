@@ -1,3 +1,5 @@
+> **NOVO — fase editorial V5 (26/10/2026):** [Fontes e benefícios](docs/EDITORIAL-V5-20261026/00-FONTES-E-CLAIMS.md) · [Cadência WhatsApp completa](docs/EDITORIAL-V5-20261026/01-CADENCIA-WHATSAPP.md) · [Roteiros de áudio Eleven v4](docs/EDITORIAL-V5-20261026/02-ROTEIROS-ELEVEN-V4.md) · [Execução Antigravity](docs/EDITORIAL-V5-20261026/03-EXECUCAO-ANTIGRAVITY.md) · [JSON de revisão por etapa](editorial/whatsapp-v5.draft.json). Os materiais são **RASCUNHO**, não conteúdo de produção. Validação offline: `python scripts/validate_editorial.py`.
+
 > **Revisão forense adicional:** [docs/REVISAO-FORENSE-INDEPENDENTE-20261025.md](docs/REVISAO-FORENSE-INDEPENDENTE-20261025.md) documenta correções importantes em PDF, snapshots, relatórios dinâmicos, SMS, e-mail e voz. Leia antes de alterar o CRM.
 
 # Proposta Natal 2026 — auditoria independente
