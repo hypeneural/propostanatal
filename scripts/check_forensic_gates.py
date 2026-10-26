@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DRAFT = ROOT / "editorial" / "whatsapp-v5.draft.json"
 REPORT = ROOT / "docs" / "EDITORIAL-V5-20261026" / "relatorios" / "AUDITORIA-FINAL.md"
 TIMELINE = ROOT / "docs" / "EDITORIAL-V5-20261026" / "relatorios" / "timeline.md"
+LIVE_P0 = ROOT / "docs" / "EDITORIAL-V5-20261026" / "relatorios" / "homologacao-v5" / "P0-D10-ESTADO-ATUAL.md"
 
 
 def parse_pending_table(content: str) -> dict:
@@ -65,6 +66,27 @@ def check() -> dict:
         problems.append("D+1 fallback differs from safe literal title")
     if by_role.get("document_d10", {}).get("status") != "blocked_do_not_publish":
         problems.append("Dangerous D+10 attachment not blocked for new publications")
+    p0_latest_text = LIVE_P0.read_text(encoding="utf-8")
+    if "13 agendamentos pendentes" not in p0_latest_text and "13 execuções pendentes" not in p0_latest_text:
+        problems.append("Latest P0 report no longer shows 13 historical pending; re-audit")
+    if "UPDATE campaign_contact_stage_runs\\nSET" in p0_latest_text or "CREATE TABLE IF NOT EXISTS campaign_stage_runs_p0_backup AS" in p0_latest_text:
+        problems.append("Unsafe direct production SQL reintroduced into latest P0 report")
+    policy = draft.get("metadata", {}).get("opt_out_display_policy") or {}
+    if policy.get("first_explicit_footer_role") != "whatsapp_d3" or policy.get("must_preserve_v4_reply_button_on_h1") is not True:
+        problems.append("Opt-out display plan violates D+3/V4 H+1 contract")
+    for r in ("initial", "whatsapp_h1", "whatsapp_90min", "whatsapp_d2"):
+        for m in next((item.get("message_edits", []) for item in stages if item["role"] == r), []):
+            for field in ("message","message_with_name","message_without_name"):
+                if "PARARNATAL2026" in str(m.get(field, "")):
+                    problems.append(r + ": repeated early STOP footer")
+    d3_cap = by_role.get("whatsapp_d3", {}).get("message_edits", [{}])[0].get("title","")
+    if "PARARNATAL2026" not in d3_cap:
+        problems.append("Missing first visible D+3 STOP footer")
+    d4_msg = next((x.get("message","") for x in by_role.get("whatsapp_d4",{}).get("message_edits",[]) if x.get("message_role")=="lembrete_4dias"),"")
+    if "10 motivos" not in d4_msg or "PARARNATAL2026" not in d4_msg:
+        problems.append("D+4 ten benefits and opt-out not found")
+    if "PARARNATAL2026" not in by_role.get("whatsapp_d10", {}).get("message_edits", [{}])[0].get("title",""):
+        problems.append("D+10 recurring STOP footer missing")
     counts = parse_pending_table(report)
     if counts["pending_by_campaign_at_snapshot"] != {415: 8, 416: 4}:
         problems.append("D+10 recorded snapshot row counts changed; inspect report manually")
@@ -94,6 +116,8 @@ def check() -> dict:
         "production_release": "NO_GO",
         "live_p0_status": "UNKNOWN_MUST_REQUERY_AND_SUPPRESS_SAFELY",
         "historical_d10": counts,
+        "later_p0_snapshot_20261026T161525Z_pending": 13,
+        "later_p0_snapshot_current": False,
         "historical_smartvoice_delivered_event_present": historical_voice_delivery,
         "historical_smartvoice_phone_call_answered": "NOT_PROVED",
         "media_captions_checked": len(captions),
