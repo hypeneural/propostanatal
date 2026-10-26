@@ -6,7 +6,7 @@ Fotografia é o produto; **experiência de Natal e memória familiar** é o moti
 
 ## Fontes de referência (Google Drive)
 - MASTER 100 motivos: https://docs.google.com/document/d/1rLqtEGrnmqOEKBqB8S8PRKTxJCekP0nc0wbDP-e-HGE/edit — 100 ângulos marcados D26, U26, H, I, P. A referência é um **banco de argumentos, não 100 recursos homologados**.
-- Proposta Natal 2025 com nome: https://docs.google.com/document/d/17JSbsX3mFIJr-7w-CH0a8v9ZZuQG27jo45K6nbulZ-s/edit — PDF, vídeo, drone, brinquedos, roupas, áudio, ações, Instagram.
+- Catálogo 2026 público verificado em 26/10: https://evydencia.com/catalogo/natal — preços atuais, 1/5/10 jogos digitais e galerias/itens declarados.\n- Proposta Natal 2025 com nome: https://docs.google.com/document/d/17JSbsX3mFIJr-7w-CH0a8v9ZZuQG27jo45K6nbulZ-s/edit — PDF, vídeo, drone, brinquedos, roupas, áudio, ações, Instagram.
 - Fluxo 2024: https://docs.google.com/document/d/1QbLCOElCRHkdsG-OBfjfGiAnj1L4sH3il10gz-7qxtY/edit — vídeo e PDF cedo, depoimentos, áudio do Papai Noel, botões.
 - Matérias e 27 motivos: https://docs.google.com/document/d/1sSuhRQsiX_cSmXBdFVgrLFG5obXDWxFYyQc2Rxr57bw/edit — valor emocional, conveniência para mães, ambiente e brindes; NÃO reutilizar 85% de ocupação.
 - Rascunho V0.8 multicanal: https://docs.google.com/document/d/1Wok8yMoOGPimyus0fSluuVmUmwLAUYXp_4T9QrqYVxo/edit — ideia editorial distinta; **não é** a produção V4.
@@ -21,7 +21,7 @@ Fotografia é o produto; **experiência de Natal e memória familiar** é o moti
 | Dois cenários: Natal + Ano Novo na mesma sessão | 2026 catálogo, V4, reportagem | OK, sujeito a escopo de pacote |
 | Três experiências; entrada a partir de 2× R$98 | Arte V4, catálogo + reportagem | OK na data da fonte; revalidar checkout antes de enviar |
 | Fotos reveladas e calendário | 2026 V4 e roteiro; todos os pacotes declarados pela direção | OK após confronto SKU, quantidades por pacote |
-| Jogos digitais com fotos da família e galeria | 2026 plano e vídeo D+3; **direção afirma universalidade** | PARCIAL: conferir entrega efetiva e disponibilidade nos 3 pacotes. Não usar quantidade de jogos sem SKU validado; há divergência em documentos sobre 2/4 versus 5/10 |
+| Jogos digitais com fotos da família e galeria | **Catálogo público 26/10/2026: 1 jogo Ho-Ho-Ho, 5 Então é Natal, 10 Boas Festas**; galeria expressa no Então é Natal; **direção afirma jogos+galeria universais** | OK para quantidade de jogos conforme o catálogo público atual; PARCIAL para galeria nos outros pacotes e entregabilidade técnica de todos os jogos, que exigem confirmação operacional |
 | Roupinhas até tamanho 6, acessórios e brinquedos | Fontes 2024–2026 e reportagem | OK sob disponibilidade de tamanho/estoque, sem alegar “maior acervo” |
 | Medalhinha para toda criança | Direção 26/10/2026 + lotes históricos 2024/25 | PENDENTE confirmar modelo, estoque e regra de 2026 para publicar como universal |
 | Certificado do Papai Noel para toda criança | Direção 26/10/2026 + produção histórica | PENDENTE confirmar digital/impresso por pacote e como se combina com brinde universal |
