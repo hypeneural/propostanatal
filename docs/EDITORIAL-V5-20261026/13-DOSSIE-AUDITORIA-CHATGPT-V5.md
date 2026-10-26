@@ -1,3 +1,5 @@
+> **ERRATA / NOVA FONTE DE DECISÃO (26/10/2026):** Este Dossiê 13 é uma fotografia histórica da auditoria publicada, **não é fonte de copy executável nem autorização de produção**. Use `editorial/whatsapp-v5.draft.json` como texto canônico, `14-COPY-CANONICA-V5-CANDIDATA.md` como prévia gerada e `15-PARECER-VALIDACAO-GO-NOGO.md` como parecer atual. Foram detectadas divergências de copy entre dossiê, relatório e JSON; D+1 foi fixado em legenda estática. No D+10, a tabela histórica mostra 8 pendentes na 415 e 4 na 416 (12 ao todo), além de 1 `skipped`, não 7+4. SmartVoice tem eventos históricos `delivered` na timeline, sem prova de chamadas atendidas. **GO apenas para homologação offline; NO-GO produção.**
+
 # 13 — Dossiê Mestre de Auditoria Forense e Editorial V5 (Instrução para ChatGPT)
 
 **Data:** 26/10/2026  
