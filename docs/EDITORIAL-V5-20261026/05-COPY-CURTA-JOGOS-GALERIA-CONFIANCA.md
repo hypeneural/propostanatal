@@ -1,3 +1,5 @@
+> **BANCO DE ALTERNATIVAS EDITORIAIS, NÃO V5 EXECUTÁVEL:** as frases a seguir são ideias/experimentos. O texto canônico atual fica em `editorial/whatsapp-v5.draft.json` e é reproduzido integralmente em `14-COPY-CANONICA-V5-CANDIDATA.md`. Alterações futuras devem começar pelo JSON, gerar o doc com o script e revalidar.
+
 # 05 — Complemento de copy WhatsApp: demonstração, confiança e experiência
 
 **26/10/2026 | IDEIAS CURTAS, RASCUNHO SEM EXECUÇÃO.**
