@@ -15,7 +15,7 @@ try {
         & $executable @arguments
         if ($LASTEXITCODE -ne 0) { throw "Check failed with exit $LASTEXITCODE" }
     }
-    Write-Host "EDITORIAL CHECKS OK — no production actions" -ForegroundColor Green
+    Write-Host "EDITORIAL CHECKS OK -- no production actions" -ForegroundColor Green
 }
 finally {
     Pop-Location

@@ -95,7 +95,8 @@ def check() -> list[str]:
                     errors.append(f"{role}/{field}: unknown tokens {sorted(tokens - ALLOWED_TOKENS)}")
                 if "```" in body or "<br" in body.lower() or "**" in body or "__" in body:
                     errors.append(f"{role}/{field}: unsupported GitHub Markdown/HTML/monospace formatting")
-                if body.count("*") % 2 or body.count("_") % 2:
+                clean_formatting = re.sub(r"\{[a-z_]+\}", "", body)
+                if clean_formatting.count("*") % 2 or clean_formatting.count("_") % 2:
                     errors.append(f"{role}/{field}: unmatched WhatsApp bold/italic marker")
                 if len(body) > (CAPTION_MAX if field == "title" and msg.get("type") in ("image", "video", "attachment") else 10000):
                     errors.append(f"{role}/{field}: exceeds technical content length")
