@@ -60,11 +60,12 @@ Proposta-Natal-AnoNovo-Evydencia-2026.pdf
 ```
 Manter anexo atual e validá-lo visualmente; não renomear sem contrato de Z-API e manifesto. Se for necessário texto explicativo, inserir mensagem curta separada **sem duplicar** as ofertas.
 
-### T0 — botões já existentes `intro_cta.buttons`
-1. `Reservar agora` → https://reserva.fotosdenatal.com/ (**checkout**)
-2. `Ver horários` → https://horarios.fotosdenatal.com/ (**agenda**)
-3. `Ver no Instagram` → https://instagram.com/estudioevydenciaa (**prova visual**)
-Verificar limite de largura/3 botões da instância e preservar parser `id;URL;url;label`. Não trocar rotas sem testar destino. A resposta “Fiquei com dúvida” pode ser preferível ao Instagram se o provedor limitar botões; isso é escolha a validar.
+### T0 — botões `intro_cta.buttons` (contrato V4 realmente aprovado)
+1. `natal2026-reservar` — `🎄 Reservar Agora` → https://evydencia.com/catalogo/natal (**destino atual permitido**)
+2. `natal2026-horarios` — `📆 Ver Horários` → https://horarios.fotosdenatal.com/
+3. `natal2026-instagram` — `📸 Nosso Instagram` → https://instagram.com/estudioevydenciaa
+
+**P0 técnico:** o validador Laravel `Natal2026ProposalManifest::validate` exige esses três destinos **exatamente nesta ordem** e rejeita `https://reserva.fotosdenatal.com/` no manifesto V4. O link de checkout direto continua uma **melhoria desejada, mas bloqueada até uma mudança versionada do contrato**. Não modificar IDs dos botões com base no relatório local do Antigravity (`btn_reservar` etc. divergem do manifesto Git). Preservar o parser `id;URL;url;label`, prévia em celular, opt-out e o hash aprovado. Ver guia `07-WHATSAPP-ZAPI-FORMATACAO-CONTRATO.md`.
 
 ### E-mail Resend no T0
 **MANTER** ação V4 para cliente elegível com e-mail consentido; NÃO misturar “e-mail depois da compra” nessa etapa. Editar assunto e conteúdo só na passagem multicanal, com dry-run do hash.
