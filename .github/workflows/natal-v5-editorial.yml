@@ -31,6 +31,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Lint local Laravel variable smoke script (no CRM bootstrap)
+        run: |
+          if command -v php >/dev/null 2>&1; then
+            php -l scripts/test_natal_runtime_variables.php
+          else
+            echo "PHP runtime unavailable here; syntax/run remains required in Antigravity local setup."
+          fi
       - name: Validate JSON fields and CRM V4 button allowlist
         run: python scripts/validate_editorial.py
       - name: Prove canonical Markdown matches JSON
