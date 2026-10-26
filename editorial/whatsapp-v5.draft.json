@@ -1,0 +1,324 @@
+{
+  "schema": "evydencia.editorial_draft.v1",
+  "metadata": {
+    "revision": "natal2026-editorial-v5-draft-20261026",
+    "status": "DRAFT_NOT_APPROVED",
+    "source_manifest_revision": "natal2026-content-v4-20261021",
+    "campaign_ids": [
+      415,
+      416
+    ],
+    "role_count": 19,
+    "write_to_production": false,
+    "snapshot_mutation_forbidden": true,
+    "disclaimer": "This is an editorial specification, NOT an executable production manifest; full diff, approved hash and controlled provisioner required."
+  },
+  "channels": {
+    "whatsapp": "draft_changes",
+    "sms": "preserve_existing_v4",
+    "resend": "preserve_existing_t0",
+    "smartvoice": "preserve_existing_configuration_no_activation"
+  },
+  "stage_edits": [
+    {
+      "role": "initial",
+      "anchor": "T0",
+      "focus": "valor+checkout",
+      "status": "draft_review_required",
+      "message_edits": [
+        {
+          "message_role": "intro_cta",
+          "type": "action",
+          "message_with_name": "Oii, *{primeiro_nome}*! 🥰🎄\nA *Vila de Natal* da Evydência, em Tijucas, está linda!\n\n✨ *Natal + Ano Novo em uma única sessão.*\nE a magia continua em casa, com fotos reveladas e lembranças personalizadas.\n\nJá vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.\n\nVocês preferem *semana ou fim de semana*?\n\n_Para parar lembretes, responda PARARNATAL2026._",
+          "message_without_name": "Oii! 🥰🎄\nA *Vila de Natal* da Evydência, em Tijucas, está linda!\n\n✨ *Natal + Ano Novo em uma única sessão.*\nE a magia continua em casa, com fotos reveladas e lembranças personalizadas.\n\nJá vou te mandar os pacotes e o PDF completo. Começam em *2x R$ 98*.\n\nVocês preferem *semana ou fim de semana*?\n\n_Para parar lembretes, responda PARARNATAL2026._"
+        },
+        {
+          "message_role": "cenarios_image",
+          "type": "image",
+          "title": "🎁 *Três jeitos de viver esse Natal!*\nTodos incluem os *dois cenários* e fotos reveladas.\nOlha os pacotes na imagem e me diz qual combina com vocês. ❤️",
+          "asset_basename": "natal-2026-pacotes-r1.png",
+          "media_id_415": 1446,
+          "media_id_416": 1462
+        },
+        {
+          "message_role": "proposta_pdf",
+          "type": "attachment",
+          "title": "Proposta-Natal-AnoNovo-Evydencia-2026.pdf",
+          "title_semantics": "fileName not caption",
+          "asset_basename": "natal2026-rev357-v1-proposta.pdf",
+          "media_id_415": 1447,
+          "media_id_416": 1463,
+          "requires_pdf_visual_validation": true
+        }
+      ],
+      "buttons": [
+        {
+          "label": "Reservar agora",
+          "url": "https://reserva.fotosdenatal.com/"
+        },
+        {
+          "label": "Ver horários",
+          "url": "https://horarios.fotosdenatal.com/"
+        },
+        {
+          "label": "Ver no Instagram",
+          "url": "https://instagram.com/estudioevydenciaa"
+        }
+      ],
+      "integrations": {
+        "email_resend": "preserve_existing_t0_action_if_eligible",
+        "sms": "none_in_initial",
+        "voice": "none_in_initial"
+      }
+    },
+    {
+      "role": "whatsapp_h1",
+      "anchor": "T+60min",
+      "focus": "video experiencia",
+      "status": "draft_review_required",
+      "message_edits": [
+        {
+          "message_role": "video_1hora",
+          "type": "video",
+          "title": "🎄 Olha um pedacinho da nossa Vila de Natal...\nÉ aqui que as famílias brincam e criam lembranças lindas. ❤️",
+          "asset_basename": "natal-2026-1hora-r3.mp4",
+          "media_id_415": 1448,
+          "media_id_416": 1464
+        },
+        {
+          "message_role": "duvidas_reply",
+          "type": "action",
+          "message": "Quer que eu te ajude a escolher um horário? 🥰\n\n_Para parar lembretes, responda PARARNATAL2026._"
+        }
+      ]
+    },
+    {
+      "role": "whatsapp_90min",
+      "anchor": "T+90min",
+      "focus": "reserva descomplicada",
+      "status": "draft_review_required",
+      "experiment": "avaliar reduzir proximidade do H+1",
+      "message_edits": [
+        {
+          "message_role": "video_90min",
+          "type": "video",
+          "title": "✨ São *dois cenários na mesma sessão*.\nQual dia seria mais tranquilo pra sua família?",
+          "asset_basename": "natal-2026-90min-r3.mp4",
+          "media_id_415": 1450,
+          "media_id_416": 1466
+        },
+        {
+          "message_role": "reserva_cta",
+          "type": "action",
+          "message": "Se preferir, dá pra escolher o horário direto no botão. 📅\n\n_Para parar lembretes, responda PARARNATAL2026._"
+        }
+      ]
+    },
+    {
+      "role": "sms_h2",
+      "anchor": "T+2h",
+      "focus": "sms apoio",
+      "status": "preserve_existing_v4"
+    },
+    {
+      "role": "whatsapp_d1",
+      "anchor": "D+1",
+      "focus": "memoria e countdown",
+      "status": "draft_review_required",
+      "gates": [
+        "confirm_token_rendered_at_send_time"
+      ],
+      "message_edits": [
+        {
+          "message_role": "video_d1",
+          "type": "video",
+          "title": "🥹 Seus filhos crescem, mas as fotos deste Natal ficam.\n\n*{natal_countdown_dias_descricao}* 🎄\nAinda dá tempo de escolher uma data especial pra vocês.",
+          "fallback_title": "🥹 Seus filhos crescem, mas as fotos deste Natal ficam.\nA temporada de ensaios passa rapidinho. ❤️",
+          "asset_basename": "natal2026-rev357-v1-d01.mp4",
+          "media_id_415": 1456,
+          "media_id_416": 1472
+        }
+      ]
+    },
+    {
+      "role": "sms_d1",
+      "anchor": "D+1 12:30",
+      "focus": "sms apoio",
+      "status": "preserve_existing_v4"
+    },
+    {
+      "role": "whatsapp_d2",
+      "anchor": "D+2",
+      "focus": "revelar Ano Novo",
+      "status": "draft_review_required",
+      "message_edits": [
+        {
+          "message_role": "video_2dias",
+          "type": "video",
+          "title": "🎆 Uma surpresa que vale por duas:\nalém das fotos de Natal, tem *cenário de Ano Novo* na mesma sessão! ✨",
+          "asset_basename": "natal-2026-2dias-r3.mp4",
+          "media_id_415": 1452,
+          "media_id_416": 1468
+        },
+        {
+          "message_role": "lembrete_2dias",
+          "type": "action",
+          "message": "Quer ver os horários que ainda funcionam pra vocês? 📅\n\n_Para parar lembretes, responda PARARNATAL2026._"
+        }
+      ]
+    },
+    {
+      "role": "sms_d2",
+      "anchor": "D+2 19:30",
+      "focus": "sms apoio",
+      "status": "preserve_existing_v4"
+    },
+    {
+      "role": "whatsapp_d3",
+      "anchor": "D+3",
+      "focus": "jogos+galeria",
+      "status": "draft_requires_commercial_validation",
+      "gates": [
+        "confirm_gallery_and_games_by_package",
+        "watch_real_demo"
+      ],
+      "message_edits": [
+        {
+          "message_role": "video_d3",
+          "type": "video",
+          "title": "🎮 A parte que as crianças amam!\nAs fotos viram *jogos personalizados* e uma galeria pra família reviver tudo. ❤️",
+          "asset_basename": "natal2026-rev357-v1-jogos.mp4",
+          "media_id_415": 1457,
+          "media_id_416": 1473
+        }
+      ]
+    },
+    {
+      "role": "sms_d3",
+      "anchor": "D+3 09:45",
+      "focus": "sms apoio",
+      "status": "preserve_existing_v4"
+    },
+    {
+      "role": "whatsapp_d4",
+      "anchor": "D+4",
+      "focus": "roupinhas+conforto",
+      "status": "draft_review_required",
+      "message_edits": [
+        {
+          "message_role": "video_4dias",
+          "type": "video",
+          "title": "👗 Já pensou nas roupinhas?\nAqui temos figurinos e acessórios infantis conforme tamanho e disponibilidade. ✨",
+          "asset_basename": "natal-2026-4dias-r3.mp4",
+          "media_id_415": 1454,
+          "media_id_416": 1470
+        },
+        {
+          "message_role": "lembrete_4dias",
+          "type": "action",
+          "message": "Se quiser, te conto como preparar os looks da família. 🥰\n\n_Para parar lembretes, responda PARARNATAL2026._"
+        }
+      ]
+    },
+    {
+      "role": "sms_d4",
+      "anchor": "D+4 13:30",
+      "focus": "sms apoio",
+      "status": "preserve_existing_v4"
+    },
+    {
+      "role": "whatsapp_d5",
+      "anchor": "D+5",
+      "focus": "autoridade+familias",
+      "status": "draft_review_required",
+      "message_edits": [
+        {
+          "message_role": "video_d5",
+          "type": "video",
+          "title": "📸 *Desde 2011 em Tijucas*, registrando famílias que voltam a cada Natal.\nÉ muito bonito acompanhar as crianças crescendo! ❤️",
+          "asset_basename": "natal2026-rev357-v1-d05.mp4",
+          "media_id_415": 1458,
+          "media_id_416": 1474
+        }
+      ]
+    },
+    {
+      "role": "sms_d5",
+      "anchor": "D+5 18:45",
+      "focus": "sms apoio",
+      "status": "preserve_existing_v4"
+    },
+    {
+      "role": "whatsapp_d10",
+      "anchor": "D+10",
+      "focus": "ajuda final sem pressão",
+      "status": "draft_review_required",
+      "message_edits": [
+        {
+          "message_role": "video_d10",
+          "type": "video",
+          "title": "🎄 Ainda pensando nas fotos de Natal?\nSe a dúvida for pacote, roupinha ou horário, me chama por aqui. ❤️",
+          "asset_basename": "natal2026-rev357-v1-d10.mp4",
+          "media_id_415": 1459,
+          "media_id_416": 1475
+        }
+      ]
+    },
+    {
+      "role": "document_d10",
+      "anchor": "D+10",
+      "focus": "anexo risco P0",
+      "status": "blocked_do_not_publish",
+      "message_edits": [
+        {
+          "message_role": "document_d10",
+          "type": "attachment",
+          "asset_basename": "natal2026-rev357-v1-d10-document.pdf",
+          "media_id_415": 1460,
+          "media_id_416": 1476,
+          "action": "disable_by_authorized_safe_path_including_frozen_runs",
+          "reason": "document filename and visual impersonate PIX receipt"
+        }
+      ]
+    },
+    {
+      "role": "sms_d10",
+      "anchor": "D+10 10:15",
+      "focus": "sms apoio",
+      "status": "preserve_existing_v4"
+    },
+    {
+      "role": "sms_d15",
+      "anchor": "D+15 19:15",
+      "focus": "sms final",
+      "status": "preserve_existing_v4"
+    },
+    {
+      "role": "sms_d20",
+      "anchor": "D+20 12:45",
+      "focus": "sms final",
+      "status": "preserve_existing_v4"
+    }
+  ],
+  "optional_not_active": [
+    {
+      "id": "voice_note_team",
+      "channel": "whatsapp_audio",
+      "slot": "T0 or H+1 replacing redundant item",
+      "source": "docs/EDITORIAL-V5-20261026/02-ROTEIROS-ELEVEN-V4.md"
+    },
+    {
+      "id": "santa_voice_note",
+      "channel": "whatsapp_audio",
+      "slot": "D+3/4, only when appropriate",
+      "source": "docs/EDITORIAL-V5-20261026/02-ROTEIROS-ELEVEN-V4.md"
+    },
+    {
+      "id": "special_publicitario",
+      "channel": "whatsapp",
+      "slot": "D+5 optional",
+      "url": "https://www.vipsocial.com.br/noticia/estudio-de-tijucas-transforma-natal-em-experiencia-para-toda-a-familia/59957",
+      "requires_label": "especial publicitário"
+    }
+  ]
+}
