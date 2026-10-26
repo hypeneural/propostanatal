@@ -10,7 +10,7 @@ As legendas de imagem/vídeo e os nomes de documentos só podem ser aplicados ap
 
 ### intro_cta — action
 
-**Campanha 415 — com nome** (337 caracteres Unicode)
+**Campanha 415 — com nome** (287 caracteres Unicode)
 
 ~~~text
 Oii, *{primeiro_nome}*! 🎄🥰
@@ -22,11 +22,9 @@ Estamos aqui *desde 2011*, fotografando histórias de família. ❤️
 Já te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.
 
 *Prefere semana ou fim de semana?*
-
-_Para parar lembretes, responda PARARNATAL2026._
 ~~~
 
-**Campanha 416 — sem nome** (318 caracteres Unicode)
+**Campanha 416 — sem nome** (268 caracteres Unicode)
 
 ~~~text
 Oii! 🎄🥰
@@ -38,8 +36,6 @@ Estamos aqui *desde 2011*, fotografando histórias de família. ❤️
 Já te envio a imagem dos pacotes e o PDF, a partir de *2x R$ 98*.
 
 *Prefere semana ou fim de semana?*
-
-_Para parar lembretes, responda PARARNATAL2026._
 ~~~
 
 ### cenarios_image — image
@@ -79,12 +75,10 @@ Proposta-Natal-AnoNovo-Evydencia-2026.pdf
 
 ### duvidas_reply — action
 
-**action.message** (95 caracteres Unicode)
+**action.message** (45 caracteres Unicode)
 
 ~~~text
 Quer que eu te ajude a escolher um horário? 🥰
-
-_Para parar lembretes, responda PARARNATAL2026._
 ~~~
 
 ## whatsapp_90min — draft_review_required
@@ -100,12 +94,10 @@ Qual dia seria mais tranquilo pra sua família?
 
 ### reserva_cta — action
 
-**action.message** (107 caracteres Unicode)
+**action.message** (57 caracteres Unicode)
 
 ~~~text
 Se preferir, dá pra escolher o horário direto no botão. 📅
-
-_Para parar lembretes, responda PARARNATAL2026._
 ~~~
 
 ## sms_h2 — preserve_existing_v4
@@ -140,12 +132,10 @@ Dois cenários pra guardar mais momentos da família. ✨
 
 ### lembrete_2dias — action
 
-**action.message** (103 caracteres Unicode)
+**action.message** (53 caracteres Unicode)
 
 ~~~text
 Quer ver os horários que ainda funcionam pra vocês? 📅
-
-_Para parar lembretes, responda PARARNATAL2026._
 ~~~
 
 ## sms_d2 — preserve_existing_v4
@@ -156,11 +146,13 @@ SMS V4 preservado; nenhuma alteração editorial nesta rodada.
 
 ### video_d3 — video
 
-**title (caption para imagem/video; fileName para documento)** (95 caracteres Unicode)
+**title (caption para imagem/video; fileName para documento)** (155 caracteres Unicode)
 
 ~~~text
 🎮 As fotos do ensaio viram *jogos personalizados*!
 Quer testar? https://jogos.fotosdenatal.com/
+
+_Se preferir parar os lembretes, responda PARARNATAL2026._
 ~~~
 
 ## sms_d3 — preserve_existing_v4
@@ -180,12 +172,25 @@ Aqui, o ensaio também é uma experiência. ❤️
 
 ### lembrete_4dias — action
 
-**action.message** (106 caracteres Unicode)
+**action.message** (385 caracteres Unicode)
 
 ~~~text
-Se quiser, te conto como preparar os looks da família. 🥰
+🎄 *10 motivos pra viver nosso Natal:*
 
-_Para parar lembretes, responda PARARNATAL2026._
+1️⃣ Natal + Ano Novo
+2️⃣ Dois cenários em uma visita
+3️⃣ Fotos reveladas
+4️⃣ Jogos com suas fotos
+5️⃣ Galeria personalizada
+6️⃣ Figurinos infantis
+7️⃣ Bolhinhas de sabão
+8️⃣ Retratos em família
+9️⃣ Evydência em Tijucas desde 2011
+🔟 Horários pela internet
+
+Qual combina mais com vocês? 🥰
+
+_Se preferir parar os lembretes, responda PARARNATAL2026._
 ~~~
 
 ## sms_d4 — preserve_existing_v4
@@ -211,11 +216,13 @@ SMS V4 preservado; nenhuma alteração editorial nesta rodada.
 
 ### video_d10 — video
 
-**title (caption para imagem/video; fileName para documento)** (103 caracteres Unicode)
+**title (caption para imagem/video; fileName para documento)** (154 caracteres Unicode)
 
 ~~~text
 🎄 Ainda pensando nas fotos de Natal?
-Se a dúvida for pacote, roupinha ou horário, me chama por aqui. ❤️
+Se a dúvida for pacote, roupinha ou horário, me chama. ❤️
+
+_Se preferir parar os lembretes, responda PARARNATAL2026._
 ~~~
 
 ## document_d10 — blocked_do_not_publish
