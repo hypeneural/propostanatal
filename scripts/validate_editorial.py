@@ -61,8 +61,8 @@ def check() -> list[str]:
         anonymous = message.get("message_without_name", "")
         if "{primeiro_nome}" not in named or "{primeiro_nome}" in anonymous:
             errors.append("415 must have first_name; 416 must not")
-        if "PARARNATAL2026" not in named or "PARARNATAL2026" not in anonymous:
-            errors.append("Do not delete initial opt-out")
+        if "PARARNATAL2026" in named or "PARARNATAL2026" in anonymous:
+            errors.append("T0 should be concise: repeated textual opt-out starts D+3, but STOP must remain functional")
     buttons = t0.get("buttons", [])
     expected_buttons = [
         {"id": "natal2026-reservar", "type": "URL", "url": "https://evydencia.com/catalogo/natal", "label": "🎄 Reservar Agora"},
@@ -71,6 +71,36 @@ def check() -> list[str]:
     ]
     if buttons != expected_buttons:
         errors.append("T0 buttons must match EXACT V4 IDs, types, URLs, labels, and ordering; checkout direct is not allowed in V4")
+    # Visible footer begins D+3, while opt-out must work immediately in every channel.
+    early = ("initial", "whatsapp_h1", "whatsapp_90min", "whatsapp_d2")
+    for role in early:
+        for item in by_role.get(role, {}).get("message_edits", []):
+            for field in ("message", "message_with_name", "message_without_name", "title"):
+                if "PARARNATAL2026" in str(item.get(field, "")):
+                    errors.append(f"{role}/{field}: repeat opt-out footer before D+3")
+    for role, expected_message_role, expected_field in (
+        ("whatsapp_d3", "video_d3", "title"),
+        ("whatsapp_d4", "lembrete_4dias", "message"),
+        ("whatsapp_d10", "video_d10", "title"),
+    ):
+        items = [m for m in by_role.get(role, {}).get("message_edits", [])
+                 if m.get("message_role") == expected_message_role]
+        if len(items) != 1 or "PARARNATAL2026" not in items[0].get(expected_field, ""):
+            errors.append(f"{role}: first/later explicit opt-out must remain visible")
+    policy = meta.get("opt_out_display_policy") or {}
+    if policy.get("first_explicit_footer_role") != "whatsapp_d3" or policy.get("must_preserve_v4_reply_button_on_h1") is not True:
+        errors.append("Preserve mandatory V4 H+1 reply-button STOP and D+3 visible footer")
+    if policy.get("never_disable_stop_recognition") is not True or policy.get("cross_channel_consent_and_suppression_required") is not True:
+        errors.append("Opt-out recognition and channel suppression are mandatory at all times")
+    d4 = by_role.get("whatsapp_d4") or {}
+    reasons = next((m.get("message", "") for m in d4.get("message_edits", [])
+                    if m.get("message_role") == "lembrete_4dias"), "")
+    if not all(f"{i}️⃣" in reasons for i in range(1, 10)) or "🔟" not in reasons:
+        errors.append("D+4 must have exactly 10 short enumerated commercial benefits")
+    if "PARARNATAL2026" not in reasons:
+        errors.append("D+4 10 benefits message must include opt-out")
+    if len(reasons) > 500:
+        errors.append("D+4 benefits message too long for conversational mobile copy")
     d10 = by_role.get("document_d10") or {}
     if d10.get("status") != "blocked_do_not_publish":
         errors.append("D+10 suspicious PDF MUST remain blocked")
@@ -125,4 +155,4 @@ if __name__ == "__main__":
         for issue in issues:
             print(" -", issue)
         sys.exit(1)
-    print("EDITORIAL_CHECK_OK: 19 roles, 9 SMS preserved, opt-out, buttons, STATIC D+1 caption, D+10 block, NO_GO production")
+    print("EDITORIAL_CHECK_OK: 19 roles, 9 SMS preserved, D+3 opt-out policy, 10 D+4 reasons, buttons, STATIC D+1 caption, D+10 block, NO_GO production")
