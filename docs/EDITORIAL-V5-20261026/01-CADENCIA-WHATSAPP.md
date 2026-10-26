@@ -1,3 +1,5 @@
+> **DOCUMENTO DE PLANEJAMENTO ANTERIOR, NÃO CANÔNICO:** este roteiro pode conter copy e token dinâmico D+1 de versões anteriores. Em 26/10/2026 a ÚNICA copy V5 candidata para aprovação está em `editorial/whatsapp-v5.draft.json`, apresentada em `14-COPY-CANONICA-V5-CANDIDATA.md`, com D+1 **estático**. Consulte também o parecer 15; não copiar deste documento para o gestor.
+
 # 01 — Cadência WhatsApp V5 | roteiro completo e curto
 **RASCUNHO PARA APROVAÇÃO — não está em produção.** Referências: campanha 415 (com nome), 416 (sem nome), fluxo V4 de 19 papéis por variante. Não criar 19 etapas novas: **editar o conteúdo das existentes via publicação versionada**, quando validado. É uma revisão editorial, não um arquivo de provisionamento aprovado.
 
