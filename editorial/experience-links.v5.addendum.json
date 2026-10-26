@@ -1,0 +1,46 @@
+{
+  "schema": "evydencia.editorial_addendum.v1",
+  "status": "DRAFT_ONLY_NOT_PUBLISHABLE",
+  "created_at": "2026-10-26",
+  "base": "editorial/whatsapp-v5.draft.json",
+  "merge_policy": "MANUAL_REVIEW_ONLY_NO_AUTOMATED_MERGE_OR_PRODUCTION_WRITE",
+  "editorial_links": [
+    {"id":"games_demo","url":"https://jogos.fotosdenatal.com/","purpose":"interactive_games_demo","web_verified":false,"user_supplied":true,"check":"desktop+mobile JS, games, no customer PII"},
+    {"id":"gallery_demo","url":"https://jogos.fotosdenatal.com/demo/fotos","purpose":"public_photo_gallery_example","web_verified":false,"user_supplied":true,"check":"gallery, lightbox, privacy, synthetic/authorized photos"},
+    {"id":"time_slots","url":"https://horarios.fotosdenatal.com/","purpose":"availability_calendar","web_verified":"html_only","user_supplied":true,"check":"real dates and slots without payment"},
+    {"id":"instagram","url":"https://instagram.com/estudioevydenciaa","purpose":"recent_families_and_bts","web_verified":false,"user_supplied":true,"check":"profile identity and recent posts"},
+    {"id":"natal_site","url":"https://fotosdenatal.com/","purpose":"full_details_pdf_companion","web_verified":true,"user_supplied":true,"check":"consistent 2026 products and bonuses"},
+    {"id":"directions","url":"https://ir.fotosdenatal.com/","purpose":"route_to_studio","web_verified":true,"user_supplied":true,"check":"maps/waze redirect same studio address"},
+    {"id":"checkout","url":"https://reserva.fotosdenatal.com/","purpose":"reservation_checkout","web_verified":false,"user_supplied":false,"check":"2026 packages, real checkout, no purchase"}
+  ],
+  "new_claims_owner_confirmed":{
+    "all_packages_gallery": {"status":"owner_confirmed_needs_catalog_sync","site_discrepancy":"Only Entao e Natal currently explicitly lists a gallery"},
+    "games_by_package":{"status":"published_2026_catalog","per_package":[1,5,10],"note":"demo may show 10, never claim ten for all"},
+    "coloring_book_each_child":{"status":"owner_confirmed_needs_inventory_and_policy"},
+    "santa_medal_each_child":{"status":"owner_confirmed_needs_inventory_and_policy"},
+    "santa_certificate_each_child":{"status":"owner_confirmed_needs_package_format_reconciliation"},
+    "interactive_entry_bubble_button_lights":{"status":"owner_confirmed_requires_2026_real_asset"},
+    "same_physical_address_since_2011":{"status":"owner_claim_unverified_publicly"},
+    "since_2011_tijucas":{"status":"confirmed_public_2026"},
+    "more_than_8500_or_10000_sessions":{"status":"conflicting_unverified_do_not_publish_number"}
+  },
+  "role_addenda": [
+    {"role":"initial","usage":"preserve_v5_existing_3_buttons_PDF_early","choice":"no_new_touchpoint"},
+    {"role":"whatsapp_h1","usage":"emotional_short_caption_about_experience","media_gate":"watch_video"},
+    {"role":"whatsapp_90min","usage":"easier_reservation_one_CTA","experiment":"check_message_frequency"},
+    {"role":"whatsapp_d1","usage":"mother/family_in_photo_emotional_story","segment_gate":"if_no_kids_known_neutral_copy"},
+    {"role":"whatsapp_d2","usage":"keep_new_year_scene_if_video_matches","alternative":"props_and_child_experience"},
+    {"role":"whatsapp_d3","usage":"existing_games_video_plus_at_most_one_demo_link","links":["games_demo","gallery_demo"],"gate":"links_mobile_and_demo_data_safe"},
+    {"role":"whatsapp_d4","usage":"medal_certificate_coloring_book_bubble_button","gate":"replace_asset_if_current_video_does_not_show_it"},
+    {"role":"whatsapp_d5","usage":"since_2011_social_proof_location_as_needed","links":["directions","instagram"],"gate":"avoid_undocumented_session_counts"},
+    {"role":"whatsapp_d10","usage":"offer_support_not_fake_urgency","blocked":"document_d10_pdf_pix"},
+    {"role":"sms_d15","usage":"preserve_existing","gate":"calendar_eligibility"},
+    {"role":"sms_d20","usage":"preserve_existing","gate":"calendar_eligibility"}
+  ],
+  "suppression_policy":"Do not initiate after purchase, STOP or channel-ineligible status; resolve snapshots and approved contract before any publication.",
+  "multichannel_policy":"Do not modify SMS, Resend, SmartVoice or existing media payloads automatically.",
+  "sources":{
+    "research":"docs/EDITORIAL-V5-20261026/04-SITES-LINKS-E-EXPERIENCIA.md",
+    "copy":"docs/EDITORIAL-V5-20261026/05-COPY-CURTA-JOGOS-GALERIA-CONFIANCA.md"
+  }
+}
