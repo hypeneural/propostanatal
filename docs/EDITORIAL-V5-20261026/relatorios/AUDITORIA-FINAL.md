@@ -1,6 +1,6 @@
 # AUDITORIA FORENSE MULTICANAL — PROPOSTA NATAL 2026
 
-**Status:** AUDITORIA FORENSE CONCLUÍDA (base real de produção comprovada)
+**Status:** EXTRAÇÃO FORENSE HISTÓRICA + ERRATA CRÍTICA 26/10/2026; não é autorização para produção.
 **Data da Extração:** 2026-10-26T12:34:30+00:00
 **Origem:** `PRODUCAO_DB_READ_ONLY` (Host: `127.0.0.1:3306`, Banco: `evyd25`, Transação Snapshot Read-Only)
 **Manifesto Lido:** `natal2026-content-v4-20261021` (Status: `approved`)
@@ -38,9 +38,9 @@
 | 666 | 415 | `skipped` | `Comprovante_de_Transferencia Pix_01112026_200921` | 1 | 2026-11-04 16:09:05 |
 | 685 | 416 | `pending` | `Comprovante_de_Transferencia Pix_01112026_200921` | 4 | 2026-11-03 09:32:06 |
 
-**FATO COMPROVADO:** Existem exatamente **12 agendamentos pendentes** (7 na 415 e 4 na 416) com o título antigo congelado em `stage_snapshot`.
+**FATO DA EXTRAÇÃO DE 26/10/2026:** A tabela acima indica **12 execuções `pending` (8 na 415 e 4 na 416)**, além de **1 `skipped`** separado. Esses quantitativos são históricos e exigem nova consulta antes da intervenção.
 **IMUTABILIDADE DO SNAPSHOT:** O método `CampaignPolicyLegacyMessages::hydrate` reconstrói o objeto `Message` diretamente do array congelado no agendamento. **Alterar `messages.title` no banco ou painel NÃO altera os 12 envios pendentes**, surtindo efeito apenas para novos clientes.
-**JANELA DE AÇÃO:** O primeiro disparo programado ocorrerá em **2026-10-31 19:29:04**. Até essa data, **nenhum delivery item foi gerado** (0 envios realizados até o momento).
+**JANELA DE AÇÃO:** O primeiro horário exibido no extrato é **2026-10-31 19:29:04**, mas o fuso da coluna não está demonstrado no relatório. Revalidar o timezone e a fila atual antes da supressão; “zero delivery items” é apenas o retrato da coleta e não uma garantia futura.
 
 ---
 
@@ -96,18 +96,16 @@ A V4 possui 9 disparos SMS por variante, com políticas e horários de envio fix
 - **No Banco de Dados:** Existem 10 etapas cadastradas (647–651 na 415 e 652–656 na 416) com ações ativas vinculadas aos flow IDs `natal2026-proposta-{1h,1d,5d,7d,10d}`.
 - **No Registry do SmartDialer (`smartdialer-platform/config/voice_flows/registry.json`):**
   - Todos os 5 fluxos estão explicitamente configurados com **`"enabled": false`**.
-- **Nos Servidores e Mídia:**
-  - Os 5 arquivos WAV PCM (`natal2026_proposta_{1h,1d,5d,7d,10d}.wav`) não foram implantados no Asterisk da produção.
-  - Asterisk não está em execução no host do CRM.
-- **Comprovação em Banco:** A tabela `campaign_stage_action_delivery_items` possui **zero registros de chamadas** para as etapas 647 a 656.
-- **Conclusão:** Nenhuma ligação foi efetuada e o discador permanece desabilitado.
+- **Implantação não demonstrada:** O registry versionado do discador foi observado com `enabled:false`, mas **não equivale** ao registry efetivo. A informação sobre WAV implantado e execução Asterisk em host diferente requer prova do ambiente real; Asterisk não precisa rodar no host do CRM.
+- **Confronto obrigatório:** O relatório `timeline.md` apresenta eventos `voice/smartvoice (delivered: 2)` nas etapas 647 e 648, incompatíveis com a afirmação anterior de “zero registros”. O que `delivered` representa deve ser confrontado com provider ACK, CDR/answered, número/canal e timestamp; sem essa prova não confirmar telefonema atendido nem negar todos os envios.
+- **Conclusão revisada:** `VOICE_STATUS_INDETERMINADO`; preservar configurações e validar registry efetivo, WAVs e ledger, sem ativar ou disparar.
 
 ---
 
 ## 7. Governança e Plano de Ação Seguro
 
-1. **Não tentar resolver os 11 agendamentos pendentes apenas editando o catálogo.** O snapshot imutável em `campaign_contact_stage_runs.stage_snapshot` continuará entregando `Comprovante_de_Transferencia Pix_01112026_200921.pdf`.
-2. **Procedimento Recomendado para D+10:** Aplicar rotina de migração/reconciliação aprovada no CRM que sanitize o `stage_snapshot` dos 11 runs pendentes (ou regere o plano com o novo título `Proposta Fotos de Natal 2026 — Evydência`) antes de 31/10/2026 19:29:04.
-3. **Melhoria Editorial dos Vídeos:** As mensagens de vídeo (D+1, D+3, D+5, D+10) podem ter seus títulos alterados no catálogo para legendas atrativas, que serão imediatamente adotadas nos próximos envios.
+1. **Não tentar resolver as 12 execuções pendentes observadas nesta extração apenas editando o catálogo.** O snapshot imutável em `campaign_contact_stage_runs.stage_snapshot` continuará entregando `Comprovante_de_Transferencia Pix_01112026_200921.pdf`.
+2. **Procedimento Recomendado para D+10:** Reconsultar o estado atual, identificar somente os runs ainda elegíveis e, com autorização operacional, **suprimir/cancelar o envio do anexo específico com trilha auditável, idempotência e reversibilidade**. Evitar reescrever silenciosamente snapshots, trocar apenas nome do PDF ou disparar outra peça que conserve a aparência de Pix. Confirmar fuso e próximo horário real.
+3. **Melhoria Editorial dos Vídeos:** Revisar as legendas no draft canônico e publicar somente por procedimento versionado aprovado com `configuration_hash`, snapshots e rollback; editar mensagem do catálogo isoladamente **não garante** adoção nos próximos envios e pode comprometer prontidão.
 
 **Auditoria concluída em modo AUDIT_ONLY. Nenhuma alteração foi realizada em produção.**
