@@ -1,3 +1,5 @@
+> ⚠️ **ESCOPO CORRIGIDO EM 27/10/2026:** O Antigravity trabalha **exclusivamente** em `hypeneural/propostanatal` e nunca executa comandos/inspeções/commits no `evydencia-crm`. O CRM pertence somente a **ChatGPT/Codex**. O fluxo autoritativo atual é [documento 27](27-ANTIGRAVITY-SO-PROPOSTANATAL-CODEX-CRM.md), que substitui instruções conflitantes abaixo. A [PR CRM #435](https://github.com/hypeneural/evydencia-crm/pull/435) foi **fechada sem merge**; branch futura `codex/N-434-natal-v52-editorial-successor`. D+10 permite só um **PDF legítimo isolado**, sem texto/legenda; o documento histórico semelhante a comprovante Pix continua bloqueado. **Não reativar anexo enganoso.**
+
 # 26 — PACOTE DE PUBLICAÇÃO V5.2 PRONTO NO GITHUB: handoff cirúrgico Antigravity
 
 **27/10/2026 · BUILD-READY PARA VALIDAÇÃO LOCAL, NÃO DEPLOYED.**  
