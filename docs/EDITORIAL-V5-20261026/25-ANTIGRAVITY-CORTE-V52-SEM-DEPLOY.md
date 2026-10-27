@@ -1,3 +1,5 @@
+> ⚠️ **ESCOPO CORRIGIDO EM 27/10/2026:** O Antigravity trabalha **exclusivamente** em `hypeneural/propostanatal` e nunca executa comandos/inspeções/commits no `evydencia-crm`. O CRM pertence somente a **ChatGPT/Codex**. O fluxo autoritativo atual é [documento 27](27-ANTIGRAVITY-SO-PROPOSTANATAL-CODEX-CRM.md), que substitui instruções conflitantes abaixo. A [PR CRM #435](https://github.com/hypeneural/evydencia-crm/pull/435) foi **fechada sem merge**; branch futura `codex/N-434-natal-v52-editorial-successor`. D+10 permite só um **PDF legítimo isolado**, sem texto/legenda; o documento histórico semelhante a comprovante Pix continua bloqueado. **Não reativar anexo enganoso.**
+
 # 25 — Prompt Antigravity URGENTE: no-deploy feasibility + migração de conteúdo V4→V5.2
 
 **Objetivo do operador:** colocar já no ar os textos humanizados V5.2 nas campanhas 415 e 416, **preferencialmente SEM deploy/release**, preservando todos os clientes que já estão na V4 e sem agravar o PDF D+10. **Prioridade: realizar uma verificação objetiva e tomar uma decisão, sem loops.**
