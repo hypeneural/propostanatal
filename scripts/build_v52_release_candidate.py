@@ -107,6 +107,12 @@ def candidate(base: dict, draft: dict, current_hash: str, approved: bool = False
                 old["description"] = None
                 old["message"] = None
                 old["asset"] = copy.deepcopy(welcome_pdf["asset"])
+                # D+10 is a single PDF send. title is Z-API filename, NOT a
+                # caption; no extra body or description is allowed.
+                if len(stage["messages"]) != 1 or not old["title"].lower().endswith(".pdf"):
+                    fail("d10_attachment_must_be_standalone_pdf_with_filename")
+                if old["message"] is not None or old["description"] is not None or old["buttons"] != []:
+                    fail("d10_attachment_contains_extra_text_or_buttons")
                 diff.append({"role": role, "message_role": old["role"], "fields": ["title", "asset"],
                              "before_sha256": old_hash, "after_sha256": sha(old),
                              "guard": "REPLACED_PIX_WITH_APPROVED_T0_PDF"})
@@ -144,6 +150,9 @@ def candidate(base: dict, draft: dict, current_hash: str, approved: bool = False
         touched[variant] = diff
     for variant in ("with_name", "without_name"):
         stages = result["variants"][variant]["stages"]
+        d10 = stages[9]["messages"]
+        if len(d10) != 1 or d10[0]["message"] is not None or d10[0]["description"] is not None:
+            fail("d10_not_a_standalone_attachment")
         if result["variants"][variant]["stages"][9]["messages"][0]["asset"] != stages[0]["messages"][2]["asset"]:
             fail("unsafe_d10_asset")
         if BAD_PDF.search(stages[9]["messages"][0]["asset"]["basename"]):
