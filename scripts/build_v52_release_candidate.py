@@ -47,11 +47,9 @@ def validate_original(base: dict, draft: dict) -> None:
         fail("editorial_base_revision_mismatch")
     if draft.get("metadata", {}).get("status") != "DRAFT_NOT_APPROVED":
         fail("unapproved_editorial_source_state")
-    if tuple(item.get("role") for item in draft.get("stage_edits", [])) != (
-        # Editorial JSON ordering differs from fixed Laravel order: check set instead.
-        tuple(item.get("role") for item in draft.get("stage_edits", []))
-    ):
-        fail("unreachable_guard")
+    # Editorial JSON ordering differs from fixed Laravel order; identity is by role.
+    if len(set(x.get("role") for x in draft.get("stage_edits", []))) != 19:
+        fail("duplicated_editorial_roles")
     if len(draft["stage_edits"]) != 19 or set(x["role"] for x in draft["stage_edits"]) != set(ROLES):
         fail("incorrect_editorial_roles")
     for variant, campaign in (("with_name", 415), ("without_name", 416)):
