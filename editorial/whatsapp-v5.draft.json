@@ -18,7 +18,8 @@
       "20261026 compression: shortened T0 and D+1/2/3/4 captions to native mobile WhatsApp; D+3 has one games demo URL; static D+1 fallback must be chosen explicitly if variable cannot render.",
       "20261026 ChatGPT audit: replaced D+1 runtime countdown token by static caption; archived dynamic candidate and made JSON sole source for editable copy.",
       "20261026 Dossier17 review: first visible textual opt-out D+3, preserved H+1 reply STOP button per V4; D+4 10 short benefits in existing action; D+10 reminder footer, no new sends.",
-      "20261026 V5.2: T0 uses live {saudacao} (with/without name) and warmer two-scene proposal; countdown added as NON-EXECUTABLE D+1 metadata candidates, retaining safe literal title until canary."
+      "20261026 V5.2: T0 uses live {saudacao} (with/without name) and warmer two-scene proposal; countdown added as NON-EXECUTABLE D+1 metadata candidates, retaining safe literal title until canary.",
+      "20261027 task split: Antigravity edits only propostanatal; Codex/ChatGPT own CRM, SQL, MySQL, Laravel. D+10 transport contract is exactly one benign proposal PDF with filename title; zero caption/text; historical Pix-style PDF remains blocked."
     ],
     "id_policy": "Historical media IDs are NON-AUTHORITATIVE hints from prior extraction; never update by ID without current flow.manifest.mapping stage_roles + stage_messages proof.",
     "publication_requires": [
@@ -375,7 +376,18 @@
           "historical_media_id_hint_415": 1460,
           "historical_media_id_hint_416": 1476
         }
-      ]
+      ],
+      "delivery_layout": {
+        "mode": "STANDALONE_ONE_ATTACHMENT",
+        "send_one_attachment": true,
+        "additional_text_message": false,
+        "message_field": null,
+        "description_field": null,
+        "title_semantics": "PDF_FILENAME_ONLY_NOT_CAPTION",
+        "safe_new_release_asset": "REUSE_EXISTING_LEGITIMATE_T0_PROPOSTA_PDF",
+        "historic_pix_style_asset": "BLOCKED_DO_NOT_SEND",
+        "rationale": "An attached financial-looking fake Pix receipt is misleading even without a caption; preserve only as historical reference, with separate P0 suppression for frozen snapshots."
+      }
     },
     {
       "role": "sms_d10",
