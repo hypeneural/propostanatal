@@ -231,11 +231,12 @@ def self_test() -> None:
     assert manifest["variants"]["with_name"]["stages"][9]["messages"][0]["asset"] == manifest["variants"]["with_name"]["stages"][0]["messages"][2]["asset"]
     assert manifest["variants"]["with_name"]["stages"][5]["messages"][0]["title"] == roles["whatsapp_d1"]["message_edits"][0]["title"]
     assert report["preserved_sms_roles"] == list(SMS)
-    false_document = copy.deepcopy(base)
-    for variant in ("with_name", "without_name"):
-        false_document["variants"][variant]["stages"][0]["messages"][2]["title"] = "Comprovante_Pix.pdf"
+    # The editorial source is authoritative for replacement titles. Mutate
+    # that input, not the base: base PDF title is replaced during candidate().
+    false_editorial = copy.deepcopy(draft)
+    false_editorial["stage_edits"][0]["message_edits"][2]["title"] = "Comprovante_Pix.pdf"
     try:
-        candidate(false_document, draft, "b"*64)
+        candidate(base, false_editorial, "b"*64)
     except ValueError:
         pass
     else:
