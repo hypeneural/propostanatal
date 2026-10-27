@@ -100,7 +100,9 @@ def candidate(base: dict, draft: dict, current_hash: str, approved: bool = False
                 welcome_pdf = stages[0]["messages"][2]
                 if welcome_pdf["role"] != "proposta_pdf" or welcome_pdf["type"] != "attachment":
                     fail("welcome_pdf_contract_changed")
-                if BAD_PDF.search(str(welcome_pdf["asset"]["basename"])) or not welcome_pdf["asset"]["sha256"]:
+                if (BAD_PDF.search(str(welcome_pdf["asset"]["basename"]))
+                    or BAD_PDF.search(str(welcome_pdf.get("title", "")))
+                    or not welcome_pdf["asset"]["sha256"]):
                     fail("safe_pdf_not_verified")
                 old_hash = sha(old)
                 old["title"] = welcome_pdf["title"]
@@ -155,8 +157,9 @@ def candidate(base: dict, draft: dict, current_hash: str, approved: bool = False
             fail("d10_not_a_standalone_attachment")
         if result["variants"][variant]["stages"][9]["messages"][0]["asset"] != stages[0]["messages"][2]["asset"]:
             fail("unsafe_d10_asset")
-        if BAD_PDF.search(stages[9]["messages"][0]["asset"]["basename"]):
-            fail("pix_pdf_not_removed")
+        if (BAD_PDF.search(stages[9]["messages"][0]["asset"]["basename"])
+            or BAD_PDF.search(str(stages[9]["messages"][0].get("title","")))):
+            fail("deceptive_payment_document_must_not_be_sent")
         if "{saudacao}" not in stages[0]["messages"][0]["message"]:
             fail("missing_dynamic_greeting")
         if any(t in stages[5]["messages"][0]["title"] for t in ("{natal_countdown_dias_descricao}", "{natal_countdown_semanas_descricao}")):
@@ -228,6 +231,15 @@ def self_test() -> None:
     assert manifest["variants"]["with_name"]["stages"][9]["messages"][0]["asset"] == manifest["variants"]["with_name"]["stages"][0]["messages"][2]["asset"]
     assert manifest["variants"]["with_name"]["stages"][5]["messages"][0]["title"] == roles["whatsapp_d1"]["message_edits"][0]["title"]
     assert report["preserved_sms_roles"] == list(SMS)
+    false_document = copy.deepcopy(base)
+    for variant in ("with_name", "without_name"):
+        false_document["variants"][variant]["stages"][0]["messages"][2]["title"] = "Comprovante_Pix.pdf"
+    try:
+        candidate(false_document, draft, "b"*64)
+    except ValueError:
+        pass
+    else:
+        fail("misleading_document_filename_must_fail")
     bad = copy.deepcopy(draft)
     bad["stage_edits"][0]["buttons"][0]["url"] = "https://example.invalid"
     try:
