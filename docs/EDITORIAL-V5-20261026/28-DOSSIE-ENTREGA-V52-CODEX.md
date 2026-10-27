@@ -1,3 +1,5 @@
+> **ERRATA INDEPENDENTE 27/10/2026 — ÚLTIMA CONFERÊNCIA CHATGPT:** Quatro nomes de vídeo no inventário deste dossiê divergiam dos assets do manifesto V4 e do JSON editorial. Foram corrigidos abaixo: H+1 e H+90 usam `-r3.mp4`, D+2 usa `-r3.mp4`, D+3 usa `natal2026-rev357-v1-jogos.mp4`. Texto de STOP transversal é requisito, não garantia de entrega já provada. A fonte executável permanece o JSON editorial, e o handoff vigente é [29 — Codex](29-CODEX-CORTE-V52-20261027.md). O D+10 mantém apenas PDF legítimo isolado, sem legenda; não utilizar filename que o represente falsamente como comprovante de pagamento.
+
 # 28 — Dossiê de Entrega Editorial V5.2 para o Codex
 
 **Status da Entrega:** `V52_EDITORIAL_FINALIZADA_PRONTA_PARA_CODEX`  
@@ -145,17 +147,17 @@ O contrato de entrega comercial para o anexo D+10 na Proposta V5.2 está formali
 
 ## 5. Inventário Completo de Mídias e Legendas
 
-Todos os 11 assets da V4 foram auditados localmente e estão com legendas em estrita conformidade com o limite técnico de 200 caracteres da Z-API e do Laravel:
+Todos os 11 assets da V4 foram auditados localmente e estão com legendas conformes ao limite de 200 caracteres validado pelo contrato Laravel V4 (não afirmar que seja limite universal da Z-API):
 
 | Etapa | Papel do Anexo | Tipo | Arquivo Físico Auditado | Legenda / Nome Z-API (`title`) | Tamanho |
 |---|---|---|---|---|---|
 | T0 | `cenarios_image` | Image | `natal-2026-pacotes-r1.png` | 🎁 *Três jeitos de viver esse Natal!*... | 150 chars |
 | T0 | `proposta_pdf` | PDF | `natal2026-rev357-v1-proposta.pdf` | `Proposta-Natal-AnoNovo-Evydencia-2026.pdf` | 41 chars |
-| H+1 | `video_1hora` | Video | `natal-2026-1hora-r1.mp4` | 🎄 Olha um pedacinho da nossa Vila de Natal... | 106 chars |
-| H+90 | `video_90min` | Video | `natal-2026-90min-r1.mp4` | ✨ São *dois cenários na mesma sessão*... | 85 chars |
+| H+1 | `video_1hora` | Video | `natal-2026-1hora-r3.mp4` | 🎄 Olha um pedacinho da nossa Vila de Natal... | 106 chars |
+| H+90 | `video_90min` | Video | `natal-2026-90min-r3.mp4` | ✨ São *dois cenários na mesma sessão*... | 85 chars |
 | D+1 | `video_d1` | Video | `natal2026-rev357-v1-d01.mp4` | 🥹 O tempo voa... mas as fotos desta fase... | 102 chars |
-| D+2 | `video_2dias` | Video | `natal-2026-2dias-r1.mp4` | 🎆 *Natal + Ano Novo*, num ensaio só!... | 90 chars |
-| D+3 | `video_d3` | Video | `natal-2026-3dias-r2.mp4` | 🎮 As fotos do ensaio viram *jogos*... + STOP | 155 chars |
+| D+2 | `video_2dias` | Video | `natal-2026-2dias-r3.mp4` | 🎆 *Natal + Ano Novo*, num ensaio só!... | 90 chars |
+| D+3 | `video_d3` | Video | `natal2026-rev357-v1-jogos.mp4` | 🎮 As fotos do ensaio viram *jogos*... + STOP | 155 chars |
 | D+4 | `video_4dias` | Video | `natal-2026-4dias-r3.mp4` | 👗 Figurinos, brincadeiras e até bolhinhas... | 99 chars |
 | D+5 | `video_d5` | Video | `natal2026-rev357-v1-d05.mp4` | ✨ Um recadinho mágico apareceu... | 127 chars |
 | D+10 | `video_d10` | Video | `natal2026-rev357-v1-d10.mp4` | 🎄 Ainda pensando nas fotos de Natal?... + STOP | 154 chars |
@@ -171,7 +173,7 @@ Todos os 11 assets da V4 foram auditados localmente e estão com legendas em est
 - **SMS (9 Etapas):** `sms_h2`, `sms_d1`, `sms_d2`, `sms_d3`, `sms_d4`, `sms_d5`, `sms_d10`, `sms_d15`, `sms_d20` permanecem como `preserve_existing_v4`.
 - **E-mail Resend T0:** Mantido sem nenhuma modificação.
 - **Voz SmartVoice:** Mantido sem nenhuma ativação ou alteração.
-- **Política de Opt-out:** Descadastros solicitados por qualquer canal ou botão são imediatamente acatados em toda a régua.
+- **Política de Opt-out:** A supressão imediata e transversal de pedidos STOP é requisito obrigatório; sua execução efetiva entre WhatsApp/SMS/voz ainda exige teste end-to-end pelo Codex.
 
 ---
 
