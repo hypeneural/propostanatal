@@ -44,11 +44,9 @@ Os paths de arquivo no script PowerShell são relativos ao repo `propostanatal`,
 
 Gerar candidato **DRAFT**, no diretório temporário privado e sem sobrescrita:
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-v52-local.ps1 \
-  -CrmRoot "C:\CAMINHO_REAL\crm" -CurrentHash "HASH_V4_ATUAL_DE_64_HEX" \
-  -ManifestOutput "$env:TEMP\natal-v52-candidato.json"
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-v52-local.ps1 -CrmRoot "C:\CAMINHO_REAL\crm" -CurrentHash "HASH_V4_ATUAL_DE_64_HEX" -ManifestOutput "$env:TEMP\natal-v52-candidato.json"
 ```
-> O caractere `\` acima é apenas formatação visual; no PowerShell executar em **uma linha** ou usar backtick de continuação, não a barra invertida. O caminho é ilustrativo.
+> Comando em uma única linha. O caminho `C:\CAMINHO_REAL\crm` é ilustrativo.
 
 Conferir `base_revision`, `base_configuration_hash`, os 30 campos textuais alterados (15 por variante), os 8 vídeos/captions, T0 PNG/PDF, D+10 PDF legítimo, hash e mídias existentes. **NÃO alterar `status` à mão.**
 
